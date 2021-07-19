@@ -15,7 +15,29 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+                    @if (auth()->user()->role_id == 1)
+                    <x-jet-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                        {{ __('Users') }}
+                    </x-jet-nav-link>
+                    @endif
+
+                    @if (auth()->user()->role_id == 2))
+                        <x-jet-nav-link href="{{ route('student.lessons.index') }}" :active="request()->routeIs('student.lessons.index')">
+                            {{ __('Lessons') }}
+                        </x-jet-nav-link>
+                    @endif
+
+                    @if (auth()->user()->role_id == 3)
+                        <x-jet-nav-link href="{{ route('teacher.courses.index') }}" :active="request()->routeIs('teacher.courses.index')">
+                            {{ __('Courses') }}
+                        </x-jet-nav-link>
+                    @endif
+
                 </div>
+                   
+                   
+                   
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
