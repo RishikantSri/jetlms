@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('teacher.courses.index');
+        return view('backend.teacher.courses.index');
     }
 
     /**
