@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function() {
    });
     Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('sitesettings-top', \App\Http\Controllers\Admin\SiteSettingController::class);
+        Route::resource('sitesettings-footer', \App\Http\Controllers\Admin\SiteSettingFooterController::class);
+       
     });
 });
 

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Mega Able bootstrap admin template by codedthemes</title>
+    <title>LMSJET </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -342,14 +341,36 @@
 
                             @endif
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="index.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-settings"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Site Setting</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
+
+                                <li class="pcoded-hasmenu">
+                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-settings"></i></span>
+                                      <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Site Settings</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                                  <ul class="pcoded-submenu">
+                                      <li class=" ">
+                                          <a href="{{ route('admin.sitesettings-top.index') }}" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Top</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                      <li class=" ">
+                                          <a href="{{ route('admin.sitesettings-footer.index') }}" class="waves-effect waves-dark">
+                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Footer</span>
+                                              <span class="pcoded-mcaret"></span>
+                                          </a>
+                                      </li>
+                                     
+                                   
+                                  </ul>
+                              </li>
                             </ul>
+
+                
+                            
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
                                     <a href="{{ route('logout') }}"
@@ -362,6 +383,7 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
+                              
                             </ul>
                         </div>
                     </nav>
