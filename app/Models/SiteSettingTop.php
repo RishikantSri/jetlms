@@ -5,9 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SiteSettingTop extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+
+class SiteSettingTop extends Model implements HasMedia
 {
-    use HasFactory;
+  
+  use InteractsWithMedia;
+  use HasFactory;
+
      protected $fillable = [ 
      'sitetitle',
      'heading',

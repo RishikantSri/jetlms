@@ -1,488 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>LMSJET </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    <!-- Meta -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description"
-        content="Mega Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-    <meta name="keywords"
-        content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
-    <meta name="author" content="codedthemes" />
-    <!-- Favicon icon -->
-
-    <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}" type="image/x-icon" />
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" />
-    <!-- waves.css -->
-    <link rel="stylesheet" href="{{ asset('backend/pages/waves/css/waves.min.css') }}" type="text/css" media="all" />
-    <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/bootstrap/css/bootstrap.min.css') }}" />
-    <!-- waves.css -->
-    <link rel="stylesheet" href="{{ asset('backend/pages/waves/css/waves.min.css') }}" type="text/css" media="all" />
-    <!-- themify icon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/icon/themify-icons/themify-icons.css') }}" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="{{
-                asset('backend/icon/font-awesome/css/font-awesome.min.css')
-            }}" />
-    <!-- scrollbar.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/jquery.mCustomScrollbar.css') }}" />
-    <!-- am chart export.css -->
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
-        media="all" />
-    <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/style.css') }}" />
-</head>
-
-<body>
-    <!-- Pre-loader start -->
-    <div class="theme-loader">
-        <div class="loader-track">
-            <div class="preloader-wrapper">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LmsJet Admin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="{{ asset('backend/css/font.css') }}">
+    <!-- Google fonts - Muli-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ asset('backend/css/style.default.css') }}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ asset('backend/img/favicon.ico') }}">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <header class="header">   
+      <nav class="navbar navbar-expand-lg">
+        
+        <div class="search-panel">
+          <div class="search-inner d-flex align-items-center justify-content-center">
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>
+            <form id="searchForm" action="#">
+              <div class="form-group">
+                <input type="search" name="search" placeholder="What are you searching for...">
+                <button type="submit" class="submit">Search</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
-    <!-- Pre-loader end -->
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
-            <nav class="navbar header-navbar pcoded-header">
-                <div class="navbar-wrapper">
-                    <div class="navbar-logo">
-                        <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
-                            <i class="ti-menu"></i>
-                        </a>
-                        <div class="mobile-search waves-effect waves-light">
-                            <div class="header-search">
-                                <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="
-                                                    input-group-addon
-                                                    search-close
-                                                "><i class="ti-close"></i></span>
-                                        <input type="text" class="form-control" placeholder="Enter Keyword" />
-                                        <span class="
-                                                    input-group-addon
-                                                    search-btn
-                                                "><i class="ti-search"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="index.html">
-                            <img class="img-fluid" src="{{ asset('backend/images/logo.png') }}" alt="Theme-Logo" />
-                        </a>
-                        <a class="mobile-options waves-effect waves-light">
-                            <i class="ti-more"></i>
-                        </a>
-                    </div>
-
-                    <div class="navbar-container container-fluid">
-                        <ul class="nav-left">
-                            <li>
-                                <div class="sidebar_toggle">
-                                    <a href="javascript:void(0)"><i class="ti-menu"></i></a>
-                                </div>
-                            </li>
-                            <li class="header-search">
-                                <div class="main-search morphsearch-search">
-                                    <div class="input-group">
-                                        <span class="
-                                                    input-group-addon
-                                                    search-close
-                                                "><i class="ti-close"></i></span>
-                                        <input type="text" class="form-control" />
-                                        <span class="
-                                                    input-group-addon
-                                                    search-btn
-                                                "><i class="ti-search"></i></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                                    <i class="ti-fullscreen"></i>
-                                </a>
-                            </li>
-                            <li class="header-notification">
-                            <a href="{{ url('/') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-home"></i></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Home</span>
-                                       
-                                    </a>
-                             </li>   
-                        </ul>
-                        <ul class="nav-right">
-                               
-                            <li class="header-notification">
-                                <a href="#!" class="waves-effect waves-light">
-                                    <i class="ti-bell"></i>
-                                    <span class="badge bg-c-red"></span>
-                                </a>
-                                <ul class="show-notification">
-                                    <li>
-                                        <h6>Notifications</h6>
-                                        <label class="label label-danger">New</label>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <div class="media">
-                                            <img class="
-                                                        d-flex
-                                                        align-self-center
-                                                        img-radius
-                                                    " src="{{
-                                                        asset(
-                                                            'backend/images/avatar-2.jpg'
-                                                        )
-                                                    }}" alt="Generic placeholder image" />
-                                            <div class="media-body">
-                                                <h5 class="
-                                                            notification-user
-                                                        ">
-                                                    John Doe
-                                                </h5>
-                                                <p class="notification-msg">
-                                                    Lorem ipsum dolor sit
-                                                    amet, consectetuer elit.
-                                                </p>
-                                                <span class="
-                                                            notification-time
-                                                        ">30 minutes ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <div class="media">
-                                            <img class="
-                                                        d-flex
-                                                        align-self-center
-                                                        img-radius
-                                                    " src="{{
-                                                        asset(
-                                                            'backend/images/avatar-4.jpg'
-                                                        )
-                                                    }}" alt="Generic placeholder image" />
-                                            <div class="media-body">
-                                                <h5 class="
-                                                            notification-user
-                                                        ">
-                                                    Joseph William
-                                                </h5>
-                                                <p class="notification-msg">
-                                                    Lorem ipsum dolor sit
-                                                    amet, consectetuer elit.
-                                                </p>
-                                                <span class="
-                                                            notification-time
-                                                        ">30 minutes ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <div class="media">
-                                            <img class="
-                                                        d-flex
-                                                        align-self-center
-                                                        img-radius
-                                                    " src="{{
-                                                        asset(
-                                                            'backend/images/avatar-3.jpg'
-                                                        )
-                                                    }}" alt="Generic placeholder image" />
-                                            <div class="media-body">
-                                                <h5 class="
-                                                            notification-user
-                                                        ">
-                                                    Sara Soudein
-                                                </h5>
-                                                <p class="notification-msg">
-                                                    Lorem ipsum dolor sit
-                                                    amet, consectetuer elit.
-                                                </p>
-                                                <span class="
-                                                            notification-time
-                                                        ">30 minutes ago</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="user-profile header-notification">
-                                <a href="#!" class="waves-effect waves-light">
-                                    <img src="{{
-                                                asset(
-                                                    'backend/images/avatar-4.jpg'
-                                                )
-                                            }}" class="img-radius" alt="User-Profile-Image" />
-                                    <span>John Doe</span>
-                                    <i class="ti-angle-down"></i>
-                                </a>
-                                <ul class="
-                                            show-notification
-                                            profile-notification
-                                        ">
-                                    <li class="waves-effect waves-light">
-                                        <a href="#!">
-                                            <i class="ti-settings"></i>
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="user-profile.html">
-                                            <i class="ti-user"></i> Profile
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="email-inbox.html">
-                                            <i class="ti-email"></i> My
-                                            Messages
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="auth-lock-screen.html">
-                                            <i class="ti-lock"></i> Lock
-                                            Screen
-                                        </a>
-                                    </li>
-                                    <li class="waves-effect waves-light">
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="
-                                                        ti-layout-sidebar-left
-                                                    "></i>
-                                            Logout
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <div class="navbar-header">
+            <!-- Navbar Header--><a href="index.html" class="navbar-brand">
+              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">LmsJet</strong><strong>Admin</strong></div>
+              <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
+            <!-- Sidebar Toggle Btn-->
+            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+          </div>
+          <div class="right-menu list-inline no-margin-bottom">  
+          
+           <a href="{{ url('/') }}" class="waves-effect waves-dark">
+             <span class="pcoded-micon"><i class="icon-home"></i></span>
+              <span class="pcoded-mtext" data-i18n="nav.dash.main">Home</span>
+            </a>
+             
+            <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
+            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link messages-toggle"><i class="icon-email"></i><span class="badge dashbg-1">5</span></a>
+              <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#" class="dropdown-item message d-flex align-items-center">
+                  <div class="profile"><img src="{{ asset('backend/img/avatar-3.jpg') }}" alt="..." class="img-fluid">
+                    <div class="status online"></div>
+                  </div>
+                  <div class="content">   <strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">9:30am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
+                  <div class="profile"><img src="{{ asset('backend/img/avatar-2.jpg') }}" alt="..." class="img-fluid">
+                    <div class="status away"></div>
+                  </div>
+                  <div class="content">   <strong class="d-block">Peter Ramsy</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">7:40am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
+                  <div class="profile"><img src="{{ asset('backend/img/avatar-1.jpg') }}" alt="..." class="img-fluid">
+                    <div class="status busy"></div>
+                  </div>
+                  <div class="content">   <strong class="d-block">Sam Kaheil</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">6:55am</small></div></a><a href="#" class="dropdown-item message d-flex align-items-center">
+                  <div class="profile"><img src="{{ asset('backend/img/avatar-5.jpg') }}" alt="..." class="img-fluid">
+                    <div class="status offline"></div>
+                  </div>
+                  <div class="content">   <strong class="d-block">Sara Wood</strong><span class="d-block">lorem ipsum dolor sit amit</span><small class="date d-block">10:30pm</small></div></a><a href="#" class="dropdown-item text-center message"> <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
+            </div>
+            <!-- Tasks-->
+            <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle"><i class="icon-new-file"></i><span class="badge dashbg-3">9</span></a>
+              <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu tasks-list"><a href="#" class="dropdown-item">
+                  <div class="text d-flex justify-content-between"><strong>Task 1</strong><span>40% complete</span></div>
+                  <div class="progress">
+                    <div role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
+                  </div></a><a href="#" class="dropdown-item">
+                  <div class="text d-flex justify-content-between"><strong>Task 2</strong><span>20% complete</span></div>
+                  <div class="progress">
+                    <div role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-3"></div>
+                  </div></a><a href="#" class="dropdown-item">
+                  <div class="text d-flex justify-content-between"><strong>Task 3</strong><span>70% complete</span></div>
+                  <div class="progress">
+                    <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-2"></div>
+                  </div></a><a href="#" class="dropdown-item">
+                  <div class="text d-flex justify-content-between"><strong>Task 4</strong><span>30% complete</span></div>
+                  <div class="progress">
+                    <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-4"></div>
+                  </div></a><a href="#" class="dropdown-item">
+                  <div class="text d-flex justify-content-between"><strong>Task 5</strong><span>65% complete</span></div>
+                  <div class="progress">
+                    <div role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" class="progress-bar dashbg-1"></div>
+                  </div></a><a href="#" class="dropdown-item text-center"> <strong>See All Tasks <i class="fa fa-angle-right"></i></strong></a>
+              </div>
+            </div>
+            <!-- Tasks end-->
+            <!-- Megamenu-->
+            <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Mega <i class="fa fa-ellipsis-v"></i></a>
+              <div class="dropdown-menu megamenu">
+                <div class="row">
+                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
+                    <ul class="list-unstyled mb-3">
+                      <li><a href="#">Lorem ipsum dolor</a></li>
+                      <li><a href="#">Sed ut perspiciatis</a></li>
+                      <li><a href="#">Voluptatum deleniti</a></li>
+                      <li><a href="#">At vero eos</a></li>
+                      <li><a href="#">Consectetur adipiscing</a></li>
+                      <li><a href="#">Duis aute irure</a></li>
+                      <li><a href="#">Necessitatibus saepe</a></li>
+                      <li><a href="#">Maiores alias</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
+                    <ul class="list-unstyled mb-3">
+                      <li><a href="#">Lorem ipsum dolor</a></li>
+                      <li><a href="#">Sed ut perspiciatis</a></li>
+                      <li><a href="#">Voluptatum deleniti</a></li>
+                      <li><a href="#">At vero eos</a></li>
+                      <li><a href="#">Consectetur adipiscing</a></li>
+                      <li><a href="#">Duis aute irure</a></li>
+                      <li><a href="#">Necessitatibus saepe</a></li>
+                      <li><a href="#">Maiores alias</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
+                    <ul class="list-unstyled mb-3">
+                      <li><a href="#">Lorem ipsum dolor</a></li>
+                      <li><a href="#">Sed ut perspiciatis</a></li>
+                      <li><a href="#">Voluptatum deleniti</a></li>
+                      <li><a href="#">At vero eos</a></li>
+                      <li><a href="#">Consectetur adipiscing</a></li>
+                      <li><a href="#">Duis aute irure</a></li>
+                      <li><a href="#">Necessitatibus saepe</a></li>
+                      <li><a href="#">Maiores alias</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
+                    <ul class="list-unstyled mb-3">
+                      <li><a href="#">Lorem ipsum dolor</a></li>
+                      <li><a href="#">Sed ut perspiciatis</a></li>
+                      <li><a href="#">Voluptatum deleniti</a></li>
+                      <li><a href="#">At vero eos</a></li>
+                      <li><a href="#">Consectetur adipiscing</a></li>
+                      <li><a href="#">Duis aute irure</a></li>
+                      <li><a href="#">Necessitatibus saepe</a></li>
+                      <li><a href="#">Maiores alias</a></li>
+                    </ul>
+                  </div>
                 </div>
-            </nav>
-
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-                    <nav class="pcoded-navbar">
-                        <div class="sidebar_toggle">
-                            <a href="#"><i class="icon-close icons"></i></a>
-                        </div>
-                        <div class="pcoded-inner-navbar main-menu">
-                            <br />
-
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
-                                    <a href="{{ route('dashboard') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            @if (auth()->user()->role_id == 1)
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="{{
-                                                route('admin.users.index')
-                                            }}" class="waves-effect waves-dark"
-                                        :active="request()->routeIs('admin.users.index')">
-                                        <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">{{ __("Users") }}</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            @endif @if (auth()->user()->role_id == 2)
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="{{
-                                                route('student.lessons.index')
-                                            }}" :active="request()->routeIs('student.lessons.index')"
-                                        class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">
-                                            {{ __("Lessons") }}</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                            @endif @if (auth()->user()->role_id == 3)
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="{{
-                                                route('teacher.courses.index')
-                                            }}" :active="request()->routeIs('teacher.courses.index')"
-                                        class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">
-                                            {{ __("Courses") }}</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            @endif
-                            <ul class="pcoded-item pcoded-left-item">
-
-                                <li class="pcoded-hasmenu">
-                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                      <span class="pcoded-micon"><i class="ti-settings"></i></span>
-                                      <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Site Settings</span>
-                                      <span class="pcoded-mcaret"></span>
-                                  </a>
-                                  <ul class="pcoded-submenu">
-                                      <li class=" ">
-                                          <a href="{{ route('admin.sitesettings-top.index') }}" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Top</span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                      <li class=" ">
-                                          <a href="{{ route('admin.sitesettings-footer.index') }}" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Footer</span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                     
-                                   
-                                  </ul>
-                              </li>
-                            </ul>
-
-                
+                <div class="row megamenu-buttons text-center">
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-1"><i class="fa fa-clock-o"></i><strong>Demo 1</strong></a></div>
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-2"><i class="fa fa-clock-o"></i><strong>Demo 2</strong></a></div>
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-3"><i class="fa fa-clock-o"></i><strong>Demo 3</strong></a></div>
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link dashbg-4"><i class="fa fa-clock-o"></i><strong>Demo 4</strong></a></div>
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link bg-danger"><i class="fa fa-clock-o"></i><strong>Demo 5</strong></a></div>
+                  <div class="col-lg-2 col-md-4"><a href="#" class="d-block megamenu-button-link bg-info"><i class="fa fa-clock-o"></i><strong>Demo 6</strong></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Megamenu end     -->
+            <!-- Languages dropdown    -->
+            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="{{ asset('backend/img/flags/16/GB.png') }} " alt="English"><span class="d-none d-sm-inline-block">English</span></a>
+              <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"> <img src="{{ asset('backend/img/flags/16/DE.png') }} " alt="English" class="mr-2"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <img src="{{ asset('backend/img/flags/16/FR.png') }} " alt="English" class="mr-2"><span>French  </span></a></div>
+            </div>
+            <!-- Log out               -->
+            <div class="list-inline-item logout">                   <a id="logout" href="login.html" class="nav-link"> <span class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+        <!-- Sidebar Header-->
+        <div class="sidebar-header d-flex align-items-center">
+          <div class="avatar"><img src="{{ asset('backend/img/avatar-6.jpg') }}" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="title">
+            <h1 class="h5">{{ auth()->user()->name }}</h1>
+            @if (auth()->user()->role_id == 1)
+            <p>Admin</p>
+            @endif
+            @if (auth()->user()->role_id == 2)
+            <p>Student</p>
+            @endif
+            @if (auth()->user()->role_id == 3)
+            <p>Teacher</p>
+            @endif
+          </div>
+        </div>
+        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+        <ul class="list-unstyled">
+          <li class="active"><a href="{{ route('dashboard') }}"> <i class="icon-home"></i>Dashboard </a></li>
+          @if (auth()->user()->role_id == 1)
+          <li><a href="{{route('admin.users.index')}}" :active="request()->routeIs('admin.users.index')" > <i class="icon-user"></i>{{ __("Users") }} </a></li>
+          @endif
+          @if (auth()->user()->role_id == 2)
+          <li><a href="{{route('student.lessons.index')}}" :active="request()->routeIs('student.lessons.index')"> <i class="fa fa-bar-chart"></i>{{ __("Lessons") }}</a></li>
                             
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none">
+          @endif
+          @if (auth()->user()->role_id == 3)
+          <li><a href="{{ route('teacher.courses.index')}}" :active="request()->routeIs('teacher.courses.index')"> <i class="icon-padnote"></i>{{ __("Courses") }}</a></li>
+          @endif
+          
+         
+          <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-settings"></i>Site Settings</a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+              <li><a href="{{ route('admin.sitesettings-top.index') }}">Top</a></li>
+              <li><a href="{{ route('admin.sitesettings-footer.index') }}">Footer</a></li>
+              
+            </ul>
+          </li>
+          <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="icon-logout"></i>LogOut </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                         {{ csrf_field() }}
-                                    </form>
-                                </li>
-                              
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="pcoded-content">
-                        <!-- Page-header start -->
-                        <div class="page-header">
-                            <div class="page-block">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <div class="page-header-title">
-                                            <h5 class="m-b-10">
-                                                {{ __("Dashboard") }}
-                                            </h5>
-                                            <p class="m-b-0">
-                                                Welcome to LMS-Jet
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <ul class="breadcrumb-title">
-                                            <li class="breadcrumb-item">
-                                                <a href="index.html">
-                                                    <i class="fa fa-home"></i>
-                                                </a>
-                                            </li>
-                                            <li class="breadcrumb-item">
-                                                <a href="#!">Dashboard</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Page-header end -->
-                        <div class="pcoded-inner-content">
-                            <!-- Main-body start -->
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page-body start -->
-                                    <div class="page-body">
-                                        @yield('content')
-                                    </div>
-                                    <!-- Page-body end -->
-                                </div>
-                                <div id="styleSelector"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </form>
+        </li>
+      
+       
+      </nav>
+      <!-- Sidebar Navigation end-->
+      <div class="page-content">
+        @yield('content')
+      </div>
     </div>
-
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="{{ asset('backend/js/jquery/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backend/js/jquery-ui/jquery-ui.min.js') }} "></script>
-    <script type="text/javascript" src="{{ asset('backend/js/popper.js/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backend/js/bootstrap/js/bootstrap.min.js') }} "></script>
-    <script type="text/javascript" src="{{ asset('backend/pages/widget/excanvas.js') }} "></script>
-    <!-- waves js -->
-    <script src="{{
-                asset('backend/pages/waves/js/waves.min.js')
-            }}"></script>
-    <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{
-                asset('backend/js/jquery-slimscroll/jquery.slimscroll.js')
-            }} "></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="{{ asset('backend/js/modernizr/modernizr.js') }} "></script>
-    <!-- slimscroll js -->
-    <script type="text/javascript" src="{{ asset('backend/js/SmoothScroll.js') }}"></script>
-    <script src="{{
-                asset('backend/js/jquery.mCustomScrollbar.concat.min.js')
-            }} "></script>
-    <!-- Chart js -->
-    <script type="text/javascript" src="{{ asset('backend/js/chart.js/Chart.js') }}"></script>
-    <!-- amchart js -->
-    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="{{
-                asset('backend/pages/widget/amchart/gauge.js')
-            }}"></script>
-    <script src="{{
-                asset('backend/pages/widget/amchart/serial.js')
-            }}"></script>
-    <script src="{{
-                asset('backend/pages/widget/amchart/light.js')
-            }}"></script>
-    <script src="{{
-                asset('backend/pages/widget/amchart/pie.min.js')
-            }}"></script>
-    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-    <!-- menu js -->
-    <script src="{{ asset('backend/js/pcoded.min.js') }}"></script>
-    <script src="{{
-                asset('backend/js/vertical-layout.min.js ')
-            }}"></script>
-    <!-- custom js -->
-    <script type="text/javascript" src="{{ asset('backend/pages/dashboard/custom-dashboard.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backend/js/script.js') }} "></script>
-</body>
-
+    <!-- JavaScript files-->
+    <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
+    <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('backend/js/charts-home.js') }}"></script>
+    <script src="{{ asset('backend/js/front.js') }}"></script>
+  </body>
 </html>

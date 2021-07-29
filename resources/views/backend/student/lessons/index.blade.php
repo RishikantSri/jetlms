@@ -1,27 +1,24 @@
 @extends('backend.layouts.app')
 @section('content')
-  <div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5> {{ __('All Lessons') }} </h5>
-                <span></span>
-                <div class="card-header-right">
-                    <ul class="list-unstyled card-option">
-                        <li><i class="fa fa-chevron-left"></i></li>
-                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                        <li><i class="fa fa-minus minimize-card"></i></li>
-                        <li><i class="fa fa-refresh reload-card"></i></li>
-                        <li><i class="fa fa-times close-card"></i></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card-block">
-               Lessons Table
-            </div>
+<div class="page-header">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">All Lessons</h2>
+          </div>
         </div>
-    </div>
-</div>
+       
+        
+        
+        
+       
+        <footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+            <div class="container-fluid text-center">
+              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+              <p class="no-margin-bottom">2021 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+            </div>
+          </div>
+        </footer>
+
 
 
 @endsection

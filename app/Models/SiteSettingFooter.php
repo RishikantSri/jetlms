@@ -17,7 +17,7 @@ class SiteSettingFooter extends Model
         'facebook',
         'twitter',
         'instagram',
-        'inkedin',
+        'linkedin',
         'skype',
         'created_at',
      'updated_at',

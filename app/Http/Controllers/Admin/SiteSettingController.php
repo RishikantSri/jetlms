@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\SiteSettingTop;
 use App\Http\Controllers\Controller;
+use Image;
 
 class SiteSettingController extends Controller
 {
@@ -75,14 +76,32 @@ class SiteSettingController extends Controller
      */
     public function update(Request $request, SiteSettingTop $sitesetting)
     {
+        // $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);    
+        
+        // $imageName = time().'.'.$request->background_image->extension();  
+     
+        // $request->background_image->storeAs('images', $imageName);
+
+
         $update = SiteSettingTop::find(1)->update(
             [
                 'sitetitle' => $request->sitetitle,
                 'heading' => $request->heading,
                 'sub_heading' => $request->sub_heading,
                 'button_text' => $request->button_text,
+               
             ]
             );
+
+            $ss = SiteSettingTop::find(1);
+           
+            if($request->hasFile('background_image') && $request->file('background_image')->isValid()){
+                $ss->clearMediaCollection('images');
+                $ss->addMediaFromRequest('background_image')->toMediaCollection('images');
+                
+            }
        return redirect()->route('admin.sitesettings-top.index')->with('message','Content updated!');
        
     }

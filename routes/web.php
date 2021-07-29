@@ -12,10 +12,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// frontend controller
+// Route::get('/', function () {
+//     return view('frontend.home.index');
+// });
 
-Route::get('/', function () {
-    return view('frontend.home');
+
+
+Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index']);
+
+
+
+Route::get('/about', function () {
+    return view('frontend.about');
 });
+
+
+// backend Controller
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
    

@@ -17,7 +17,7 @@ class SiteSettingSeeder extends Seeder
     {
         //
         SiteSettingTop::create(['sitetitle' => 'Jet LMS',
-                                 'heading' => 'Learning Today, Leading Tomorrow',
+                                 'heading' => 'Learning Today,Leading Tomorrow',
                                  'sub_heading' => 'We are team of talented Trainer, for giving the best to students ',
                                  'button_text' => 'Get Started',
                                  'background_image' => 'bacjgriung Image',

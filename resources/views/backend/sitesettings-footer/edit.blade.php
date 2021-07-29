@@ -52,6 +52,7 @@
                                     value="{{ $sitesetting->copyright_message }}">
                             </div>
                         </div>
+                        
 
                     
 
@@ -86,10 +87,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inkedin" class="col-4 col-form-label">inkedin</label>
+                            <label for="inkedin" class="col-4 col-form-label">linkedin</label>
                             <div class="col-8">
-                                <input type="text"  name="inkedin" class="form-control" id="inkedin"
-                                    value="{{ $sitesetting->inkedin }}">
+                                <input type="text"  name="linkedin" class="form-control" id="linkedin"
+                                    value="{{ $sitesetting->linkedin }}">
                             </div>
                         </div>
                         <div class="form-group row">

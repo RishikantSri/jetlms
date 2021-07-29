@@ -49,6 +49,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-4 col-form-label">Background Image </label>
+                            <div class="col-8">
+                            <img src="{{$sitesetting->getFirstMediaUrl('images')}}" / width="120px">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="copyright_message" class="col-4 col-form-label">Change Image</label>
+                            <div class="col-8">
+                            <input type="file" name ="background_image" class="form-control" id="background_image" >
+                            </div>
+                        </div>
+
                        
 
                     </div>

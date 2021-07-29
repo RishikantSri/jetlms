@@ -1,10 +1,14 @@
 @extends('backend.layouts.app')
 @section('content')
 
+<div class="page-header">
+          <div class="container-fluid">
+            <h2 class="h5 no-margin-bottom">Settings : Footer</h2>
+          </div>
+</div>
+
 <div class="card">
-    <div class="card-header">
-      Site Settings: Top
-    </div>
+    
     @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
@@ -91,10 +95,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inkedin" class="col-4 col-form-label">inkedin</label>
+                            <label for="inkedin" class="col-4 col-form-label">linkedin</label>
                             <div class="col-8">
-                                <input type="text" readonly class="form-control" id="inkedin"
-                                    value="{{ $sitesetting->inkedin }}">
+                                <input type="text" readonly class="form-control" id="linkedin"
+                                    value="{{ $sitesetting->linkedin }}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -133,4 +137,12 @@
     </div>
 </div>
 </div>
+<footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+            <div class="container-fluid text-center">
+              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+              <p class="no-margin-bottom">2021 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+            </div>
+          </div>
+</footer>
 @endsection
