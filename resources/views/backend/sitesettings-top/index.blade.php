@@ -2,19 +2,18 @@
 
 @extends('backend.layouts.app')
 @section('content')
-<div class="page-header">
-          <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Settings : Top</h2>
-          </div>
-</div>
+
  
 <div class="card"> 
     <div class="card-header">
-      Site Settings: Top
+    <h2 class="h5 no-margin-bottom">Settings : Top</h2>
     </div>
     @if(session()->has('message'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="fa fa-times"></i>
+        </button>
+        <strong>Success !</strong> {{ session()->get('message') }}
     </div>
     @endif
     <div class="card-body">
@@ -80,14 +79,8 @@
         </a> -->
     </div>
 
-    <nav class="mb-3">
-        <div class="nav nav-tabs">
-
-        </div>
-    </nav>
-    <div class="tab-content">
-
-    </div>
+    
+   
 </div>
 </div>
 

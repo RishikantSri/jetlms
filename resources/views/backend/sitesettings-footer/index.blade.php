@@ -1,19 +1,25 @@
 @extends('backend.layouts.app')
 @section('content')
 
-<div class="page-header">
-          <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Settings : Footer</h2>
-          </div>
-</div>
+       
+ 
+   
 
 <div class="card">
-    
+    <div class="card-header">
+        <h2 class="h5 no-margin-bottom">Settings : Footer</h2>
+    </div>
+
     @if(session()->has('message'))
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="fa fa-times"></i>
+        </button>
+        <strong>Success !</strong> 
         {{ session()->get('message') }}
     </div>
     @endif
+    
     <div class="card-body">
              <a class="btn btn-info" href="{{ route('admin.sitesettings-footer.edit', $sitesetting->id) }}">Edit</a>
              <br>
@@ -127,14 +133,7 @@
         </a> -->
     </div>
 
-    <nav class="mb-3">
-        <div class="nav nav-tabs">
-
-        </div>
-    </nav>
-    <div class="tab-content">
-
-    </div>
+    
 </div>
 </div>
 <footer class="footer">

@@ -22,7 +22,7 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                        
-                          <a href="{{ url('/dashboard') }}" class="dashboard-btn">Dashboard</a>
+                          <a href="{{ url('/dashboard') }}" target="_blank" class="dashboard-btn">Dashboard</a>
                           <a href="{{ route('logout') }}" class="dashboard-btn"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout

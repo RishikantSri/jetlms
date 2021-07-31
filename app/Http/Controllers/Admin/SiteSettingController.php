@@ -76,14 +76,14 @@ class SiteSettingController extends Controller
      */
     public function update(Request $request, SiteSettingTop $sitesetting)
     {
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);    
         
-        // $imageName = time().'.'.$request->background_image->extension();  
-     
-        // $request->background_image->storeAs('images', $imageName);
-
+        $validated = $request->validate([
+            'sitetitle'=> 'required|max:100',
+            'heading' => 'required|max:255',
+            'sub_heading' => 'required|max:150',
+            'button_text' => 'required|max:50',
+           
+        ]); 
 
         $update = SiteSettingTop::find(1)->update(
             [
@@ -93,16 +93,17 @@ class SiteSettingController extends Controller
                 'button_text' => $request->button_text,
                
             ]
-            );
+        );
 
-            $ss = SiteSettingTop::find(1);
+        $ss = SiteSettingTop::find(1);
            
-            if($request->hasFile('background_image') && $request->file('background_image')->isValid()){
+        if($request->hasFile('background_image') && $request->file('background_image')->isValid()){
                 $ss->clearMediaCollection('images');
                 $ss->addMediaFromRequest('background_image')->toMediaCollection('images');
                 
-            }
-       return redirect()->route('admin.sitesettings-top.index')->with('message','Content updated!');
+        }
+       
+        return redirect()->route('admin.sitesettings-top.index')->with('message','Content updated!');
        
     }
 

@@ -78,12 +78,21 @@ class SiteSettingFooterController extends Controller
     
     public function update(Request $request, SiteSettingFooter $sitesetting)
     {
-        // if(count($request->all()) > 0) {
-        //     dd('request all input not empty.');
-        // } else {
-        //     dd('request all input empty.');
-        // }
-       // dump($request->all());
+        
+       $validated = $request->validate([
+        'address'=> 'required|max:150',
+        'phone' => 'required|digits:10|max:10',
+        'email' => 'required|email',
+        'newsletter_message' => 'required|max:150',
+        'copyright_message' => 'required|max:150',
+        'twitter' => 'required',
+        'instagram' => 'required',
+        'facebook' => 'required',
+        'linkedin' => 'required',
+        'skype' => 'required',
+       
+    ]); 
+
         $update = SiteSettingFooter::find(1)->update(
             [
                 'address' => $request->address,
@@ -94,10 +103,11 @@ class SiteSettingFooterController extends Controller
                 'twitter' => $request->twitter,
                 'instagram' => $request->instagram,
                 'facebook' => $request->facebook,
-                'inkedin' => $request->inkedin,
+                'linkedin' => $request->linkedin,
                 'skype' => $request->skype,
             ]
             );
+            
        return redirect()->route('admin.sitesettings-footer.index')->with('message','Content updated!');
        
     }

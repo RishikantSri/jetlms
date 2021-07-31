@@ -50,7 +50,7 @@
           </div>
           <div class="right-menu list-inline no-margin-bottom">  
           
-           <a href="{{ url('/') }}" class="waves-effect waves-dark">
+           <a href="{{ url('/') }}"  target="_blank" class="waves-effect waves-dark">
              <span class="pcoded-micon"><i class="icon-home"></i></span>
               <span class="pcoded-mtext" data-i18n="nav.dash.main">Home</span>
             </a>
