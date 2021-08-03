@@ -24,7 +24,7 @@ class CreateSiteSettingFootersTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('inkedin')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('skype')->nullable();
             $table->timestamps();
             $table->softDeletes();

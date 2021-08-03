@@ -1,10 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\user;
 use App\Models\SiteSettingFooter;
 use Illuminate\Database\Seeder;
 use App\Models\SiteSettingTop;
+use Illuminate\Support\Facades\Hash;
 
 class SiteSettingSeeder extends Seeder
 {
@@ -26,17 +27,25 @@ class SiteSettingSeeder extends Seeder
                                 ]);
 
         SiteSettingFooter::create(['address' => 'Address',
-                                'phone' => 'Phone',
-                                'email' => 'Email',
+                                'phone' => '1234567890',
+                                'email' => 'info@lmsjet.com',
                                 'newsletter_message' => 'Newsletter_message',
-                                'copyright_message' => 'Copyright_message',
+                                'copyright_message' => 'All rights reserved',
                                 'twitter' => 'Twitter',
                                 'instagram' => 'Instagram',
                                 'facebook' => 'Facebook',
-                                'inkedin' => 'Inkedin',
+                                'linkedin' => 'Inkedin',
                                 'skype' => 'Skype',
 
-                               ]);    
+                               ]);  
+        
+                 User::create([
+                            'name' => 'Admin',
+                            'email' => 'admin@rishikantsri.tech',
+                            'password' => Hash::make('password'),
+                            'role_id' => '1'
+                               ]);                          
+                                
                                                  
        
     }
