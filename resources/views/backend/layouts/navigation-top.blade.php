@@ -41,8 +41,8 @@
             <div class="list-inline-item dropdown"><a id="profile" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><span class="d-none d-sm-inline-block">Admin</span></a>
               <div aria-labelledby="profile" class="dropdown-menu">
             
-            
-            <a rel="nofollow" href="#" class="dropdown-item"> <i class="icon-user mr-2"></i><span>Profile</span></a>
+             
+            <a rel="nofollow" href="{{ route('profile.show', Auth::user()->id) }}" class="dropdown-item"> <i class="icon-user mr-2"></i><span>Profile</span></a>
             
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="icon-logout mr-2"></i>LogOut </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">

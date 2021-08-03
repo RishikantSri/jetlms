@@ -38,6 +38,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::group(['middleware' => 'auth'], function() {
+
+    Route::resource('profile', \App\Http\Controllers\Admin\ProfileController::class);
+
+    
     Route::group(['middleware' => 'role:student', 'prefix' => 'student', 'as' => 'student.'], function() {
         Route::resource('lessons', \App\Http\Controllers\Students\LessonController::class);
     });
@@ -48,6 +52,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('sitesettings-top', \App\Http\Controllers\Admin\SiteSettingController::class);
         Route::resource('sitesettings-footer', \App\Http\Controllers\Admin\SiteSettingFooterController::class);
+        
        
     });
 });
