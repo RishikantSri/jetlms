@@ -16,9 +16,10 @@ class CreateUserDetailsTable extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user_id')->nullable();
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->foreignId('user_id');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('gender')->nullable();
             
             $table->string('second_email')->nullable();
             $table->string('phone')->nullable();
@@ -35,7 +36,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('lincense_number')->nullable();
             
 
-            $table->string('image')->nullable();
+            $table->string('image_path')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('facebook')->nullable();

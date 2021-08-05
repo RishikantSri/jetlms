@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head> 
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LmsJet Admin</title>
     <meta name="description" content="">
@@ -16,7 +16,7 @@
     <!-- Google fonts - Muli-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('backend/css/style.default.css') }}" id="theme-stylesheet">
+    <link rel="stylesheet" href="{{ asset('backend/css/style.sea.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
     <!-- Favicon-->
@@ -39,6 +39,10 @@
       </div>
     </div>
     <!-- JavaScript files-->
+    <script>
+  
+</script>
+    </script> 
     <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
@@ -48,3 +52,4 @@
     <script src="{{ asset('backend/js/front.js') }}"></script>
   </body>
 </html>
+

@@ -5,16 +5,6 @@
 
  
 <div class="card"> 
-    @if(session()->has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <i class="fa fa-times"></i>
-        </button>
-        <strong>Success !</strong> {{ session()->get('message') }}
-    </div>
-    @endif
-  
-   
 <div class="container bootstrap snippets bootdeys">
     <div class="row" id="user-profile">
         <div class="col-lg-3 col-md-4 col-sm-4">
@@ -23,8 +13,7 @@
                 <div class="profile-status">
                     <i class="fa fa-check-circle"></i> Online
                 </div>
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="profile-img img-responsive center-block" style="width: 100%";>
-                <div class="profile-label">
+                <img src='{{ $user->UserDetails->image_path }}'  alt="" class="profile-img img-responsive center-block" style="width: 100%";> <div class="profile-label">
                     <span class="label label-danger">{{ $user->name}}</span>
                 </div>
 
@@ -35,13 +24,13 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
              <br>      
-            @if (auth()->user()->role_id == 1)
+            @if ($user->role_id == 1)
             <span>Super User</span>
             @endif
-            @if (auth()->user()->role_id == 2)
+            @if ($user->role_id == 2)
             <span>Student</span>
             @endif
-            @if (auth()->user()->role_id == 3)
+            @if ($user->role_id == 3)
             <span>Teacher</span>
             @endif
                 </div>
@@ -58,12 +47,25 @@
         </div>
 
         <div class="col-lg-9 col-md-8 col-sm-8">
+       
+           
             <div class="main-box clearfix">
                 <div class="profile-header">
                     <h3><span>User info</span></h3>
-                    <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary edit-profile">
-                        <i class="fa fa-pencil-square fa-lg"></i> Edit profile
-                    </a>
+                    <div class="">
+                     @if(session()->has('message'))
+                    <div>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Success !</strong> {{ session()->get('message') }}
+                        </div>
+                    </div>
+            
+                     @endif
+                    </div>
+                    
                 </div>
 
                 <div class="row profile-user-info">
@@ -83,6 +85,14 @@
                             </div>
                             <div class="profile-user-details-value">
                             {{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:'N/A'  }}
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Gender:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->gender) ? $user->UserDetails->gender:'N/A'  }}
                             </div>
                         </div>
                         <div class="profile-user-details clearfix">
@@ -207,6 +217,10 @@
                       </ul>
                     </div>
                     </div>
+                    <br>
+                    <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-success edit-profile">
+                        <i class="fa fa-pencil-square fa-lg"></i> Edit profile
+                    </a>
                 </div>
                 @if (auth()->user()->role_id == 1)
                 <div class="tabs-wrapper profile-tabs">

@@ -66,6 +66,8 @@ class SiteSettingSeeder extends Seeder
                                 'facebook' => 'facebook',
                                 'skype' => 'skype',
                                 'instagram' => 'instagram',
+                                'image_path' => '/storage/default/avatar1.png',
+                                 'gender' => 'Male',
                                 
                                    ]);   
                                    

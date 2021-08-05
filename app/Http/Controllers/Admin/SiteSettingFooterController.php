@@ -18,8 +18,7 @@ class SiteSettingFooterController extends Controller
     public function index()
     {
        
-        $sitesetting = SiteSettingFooter::first();
-        return view('backend.sitesettings-footer.index', compact('sitesetting'));
+       
     }
 
     /**
@@ -52,6 +51,8 @@ class SiteSettingFooterController extends Controller
     public function show($id)
     {
         //
+        $sitesetting = SiteSettingFooter::first();
+        return view('backend.sitesettings-footer.show', compact('sitesetting'));
     }
 
     /**
@@ -107,8 +108,8 @@ class SiteSettingFooterController extends Controller
                 'skype' => $request->skype,
             ]
             );
-            
-       return redirect()->route('admin.sitesettings-footer.index')->with('message','Content updated!');
+          
+       return redirect()->route('admin.sitesettings-footer.show','1')->with('message','Content updated!');
        
     }
 

@@ -5,28 +5,27 @@
 
  
 <div class="card"> 
-    @if(session()->has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <i class="fa fa-times"></i>
-        </button>
-        <strong>Success !</strong> {{ session()->get('message') }}
-    </div>
-    @endif
+  
+    
   
    
 <div class="container bootstrap snippets bootdeys">
+<form action="{{ route('profile.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
+                 @csrf
+                 @method('PUT')
     <div class="row" id="user-profile">
+        
         <div class="col-lg-3 col-md-4 col-sm-4">
             <div class="main-box clearfix">
                 <h2>{{ $user->name}} </h2>
                
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="profile-img img-responsive center-block" style="width: 100%";>
+                <img src="{{$user->UserDetails->image_path}}" alt="" class="profile-img img-responsive center-block" style="width: 100%";>
+               
                
                 <div class="form-group row">
                      <label for="inputEmail3" class=" col-form-label form-control-sm">Change Image</label>
-                        <div >
-                            <input type="file" name="background_image" class="form-control" id="background_image">
+                        <div class="">
+                            <input type="file" name="image_path" class="form-control" id="image_path">
                         </div>
                  </div>
             </div>
@@ -36,153 +35,172 @@
             <div class="main-box clearfix">
                 <div class="profile-header">
                     <h3><span>User info</span></h3>
-                    <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-primary edit-profile">
-                        <i class="fa fa-pencil-square fa-lg"></i> Save profile
-                    </a>
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                     @endif
+                    
                 </div>
-
+               
                 <div class="row profile-user-info">
-                    <div class="col-sm-8">
-                  
-                    <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label form-control-sm">First Name</label>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->firstname) ? $user->UserDetails->firstname:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label form-control-sm">Last Name:</label>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>  
-                    <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label form-control-sm">Qualification :</label>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>  
-                    <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label form-control-sm">Email(Reg):</label>
-                        <div class="col-sm-9">
-                            <input type="email"  value=" {{ $user->email ? $user->email:''  }}" class="form-control form-control-sm" id="inputEmail3" readonly>
-                        </div>
-                    </div>  
-                    <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-3 col-form-label form-control-sm">Second Email:</label>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->second_email) ? $user->UserDetails->second_email:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <label for="inputEmail3" class="col-form-label form-control-sm">Address:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value=" {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                            <input type="email"  value=" {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                     
-                    </div>
-                    <div class="col-sm-4 profile-social">
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <i class="fa fa-twitter-square"></i>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->twitter) ? $user->UserDetails->twitter:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <i class="fa fa-linkedin-square"></i>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->linkedin) ? $user->UserDetails->linkedin:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <i class="fa fa-facebook-square"></i>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->facebook) ? $user->UserDetails->facebook:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <i class="fa fa-skype"></i>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->skype) ? $user->UserDetails->skype:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-3">
-                        <i class="fa fa-instagram"></i>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="email"  value="{{ isset($user->UserDetails->instagram) ? $user->UserDetails->instagram:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                        </div>
-                    </div>
-                        
-                    </div>
-                    <div class="col-sm-6">
-                    
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                        <label for="inputEmail3" class="col-form-label form-control-sm">Pincode:</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="email"  value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                           
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                        <label for="inputEmail3" class="col-form-label form-control-sm"> City:</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="email"  value=" {{ isset($user->UserDetails->address_city) ? $user->UserDetails->address_city:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                           
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                        <label for="inputEmail3" class="col-form-label form-control-sm">  State:</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="email"  value="    {{ isset($user->UserDetails->address_state) ? $user->UserDetails->address_state:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                           
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-sm-6">
-                <div class="form-group row">
-                        <div class="col-sm-4">
-                        <label for="inputEmail3" class="col-form-label form-control-sm"> Country:</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="email"  value=" {{ isset($user->UserDetails->address_country) ? $user->UserDetails->address_country:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                           
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                        <label for="inputEmail3" class="col-form-label form-control-sm">Phone:</label>
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="email"  value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                           
-                        </div>
-                    </div>
+                   
+                                <div class="col-sm-8">
+                            
+                                    <div class="form-group row">
+                                            <label for="firstname" class="col-sm-3 col-form-label form-control-sm">First Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="firstname" value="{{ isset($user->UserDetails->firstname) ? $user->UserDetails->firstname:''  }}" class="form-control form-control-sm" id="firstname" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                            <label for="lastname" class="col-sm-3 col-form-label form-control-sm">Last Name:</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="lastname" value="{{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:''  }}" class="form-control form-control-sm" id="lastname" >
+                                        </div>
+                                    </div>  
+                                    <div class="form-group row">
+                                            <label for="qualification" class="col-sm-3 col-form-label form-control-sm">Qualification :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="qualification" value="{{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:''  }}" class="form-control form-control-sm" id="qualification" >
+                                        </div>
+                                    </div>  
+                                    <div class="form-group row">
+                                            <label for="email" class="col-sm-3 col-form-label form-control-sm">Email(Reg):</label>
+                                        <div class="col-sm-9">
+                                            <input type="email"  name="email" value=" {{ $user->email ? $user->email:''  }}" class="form-control form-control-sm" id="email" readonly>
+                                        </div>
+                                    </div>  
+                                    <div class="form-group row">
+                                            <label for="second_text" class="col-sm-3 col-form-label form-control-sm">Second Email:</label>
+                                        <div class="col-sm-9">
+                                            <input type="email"  name="second_email" value="{{ isset($user->UserDetails->second_email) ? $user->UserDetails->second_email:''  }}" class="form-control form-control-sm" id="inputEmail3" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <label for="address_line1" class="col-form-label form-control-sm">Address:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="address_line1" value=" {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:''  }}" class="form-control form-control-sm" id="address_line1" >
+                                            <input type="text"  name="address_line2" value=" {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:''  }}" class="form-control form-control-sm" id="address_line2" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 profile-social">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <i class="fa fa-twitter-square"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="twitter" value="{{ isset($user->UserDetails->twitter) ? $user->UserDetails->twitter:''  }}" class="form-control form-control-sm" id="twitter" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <i class="fa fa-linkedin-square"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="linkedin" value="{{ isset($user->UserDetails->linkedin) ? $user->UserDetails->linkedin:''  }}" class="form-control form-control-sm" id="inputEmail3" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <i class="fa fa-facebook-square"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="facebook" value="{{ isset($user->UserDetails->facebook) ? $user->UserDetails->facebook:''  }}" class="form-control form-control-sm" id="facebook" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <i class="fa fa-skype"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="skype" value="{{ isset($user->UserDetails->skype) ? $user->UserDetails->skype:''  }}" class="form-control form-control-sm" id="skype" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                        <i class="fa fa-instagram"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="instagram" value="{{ isset($user->UserDetails->instagram) ? $user->UserDetails->instagram:''  }}" class="form-control form-control-sm" id="instagram" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                        <label for="address_pincode" class="col-form-label form-control-sm">Pincode:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
+                                        
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                        <label for="address_city" class="col-form-label form-control-sm"> City:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text"  name="address_city" value=" {{ isset($user->UserDetails->address_city) ? $user->UserDetails->address_city:''  }}" class="form-control form-control-sm" id="address_city" >
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                        <label for="address_state" class="col-form-label form-control-sm">  State:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text"  name="address_state" value="    {{ isset($user->UserDetails->address_state) ? $user->UserDetails->address_state:''  }}" class="form-control form-control-sm" id="address_state" >
+                                        
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                        <label for="address_country" class="col-form-label form-control-sm"> Country:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text"  name="address_country" value=" {{ isset($user->UserDetails->address_country) ? $user->UserDetails->address_country:''  }}" class="form-control form-control-sm" id="address_country" >
+                                        
+                                        </div>
+                                    </div>
 
-                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                    <label for="phone" class="col-form-label form-control-sm">Phone:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
+                                    
+                                    </div>
+                                </div>
+                                
+
+                                </div>
+                            <input class="btn btn-danger save-profile" type="submit" name="" value="Save profile">
+                            
+                   
+                       
+                    
                    
                 </div>
+                </form>
+
+
                 @if (auth()->user()->role_id == 1)
                 <div class="tabs-wrapper profile-tabs">
                     <ul class="nav nav-tabs">

@@ -1,4 +1,9 @@
 /* your styles go here */
+.page-content {
+    
+    min-height: 87vh;
+    
+}
 
 body
     

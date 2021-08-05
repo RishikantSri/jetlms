@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 // frontend controller
 // Route::get('/', function () {
 //     return view('frontend.home.index');
@@ -52,6 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('sitesettings-top', \App\Http\Controllers\Admin\SiteSettingController::class);
         Route::resource('sitesettings-footer', \App\Http\Controllers\Admin\SiteSettingFooterController::class);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        
         
        
     });

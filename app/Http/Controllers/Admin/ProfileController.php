@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserDetails;
 use App\Models\SiteSettingTop;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,15 +51,24 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-      //  $id = Auth::id();
+      
         $user = User::find($id);
         $userdetails = User::find($id)->UserDetails;
+
+        // if($user->UserDetails->image==null){ // default image 
+        //     $image_path="/storage/default/avatar1.png";
+
+        // }else{
+        //     $folder='images';
+        //     $image_path= $user->UserDetails->getFirstMediaUrl($folder);
+        // }
+
        
-       //  dd($userdetails);
+         
         return view('backend.profile.show', compact('user'));
       
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,7 +93,47 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $validated = $request->validate([
+            'firstname'=> 'max:100', 'lastname' => 'max:255',
+            'qualification' => 'max:150', "second_email" => 'max:150',
+            "address_line1" => 'max:255', "address_line2" => 'max:255',
+             "twitter" => 'max:255', "linkedin" => 'max:255',
+            "facebook" => 'max:255', "skype" => 'max:255',
+            "instagram" => 'max:255', "address_pincode" => 'max:10',
+            "address_city" => 'max:255', "address_state" => 'max:255',
+            "address_country" => 'max:255', "phone" => 'max:10',
+           
+        ]); 
+   
+         $update = UserDetails::find($id)->update(
+             [
+                 'firstname' => $request->firstname,'lastname' => $request->lastname,
+                 'qualification' => $request->qualification, 'second_email' => $request->second_email,
+                 'address_line1' => $request->address_line1, 'address_line2' => $request->address_line2,
+                 'twitter' => $request->twitter,'linkedin' => $request->linkedin,
+                 'facebook' => $request->facebook, 'skype' => $request->skype,
+                 'instagram' => $request->instagram, 'address_pincode' => $request->address_pincode,
+                 'address_city' => $request->address_city, 'address_state' => $request->address_state,
+                 'address_country' => $request->address_country, 'address_state' => $request->address_state,
+                 'address_country' => $request->address_country, 'phone' => $request->phone,
+               
+             ]
+         );
+
+         $ss = UserDetails::find($id);
+           
+         if($request->hasFile('image_path') && $request->file('image_path')->isValid()){
+                 $ss->clearMediaCollection('images');
+                 $ss->addMediaFromRequest('image_path')->toMediaCollection('images');
+
+                 // set to UserDetails Table-> image is uploaded
+                 $ss->image_path = $ss->getFirstMediaUrl('images');
+                 $ss->save(); 
+                
+         }
+    
+        return redirect()->route('profile.show', $id )->with('message','Content updated!');
     }
 
     /**

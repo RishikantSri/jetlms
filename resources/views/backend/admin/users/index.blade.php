@@ -6,69 +6,42 @@
             <h2 class="h5 no-margin-bottom">All Users</h2>
           </div>
         </div>
-       
-        
+
         <section class="no-padding-bottom">
           <div class="container-fluid">
            
+          @foreach ($users as $user)
             <div class="public-user-block block">
-              <div class="row d-flex align-items-center">                   
+          
+              <div class="row d-flex align-items-center"> 
+                              
                 <div class="col-lg-4 d-flex align-items-center">
-                  <div class="order">4th</div>
-                  <div class="avatar"> <img src="{{ asset('backend/img/avatar-1.jpg') }}" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Tomas Hecktor</strong><span class="d-block">@tomhecktor</span></a>
+                  <div class="order">{{ $user->id}}</div>
+                  <div class="avatar"> <img src="{{ $user->UserDetails->image_path }}" alt="..." class="img-fluid">
+                </div>
+                
+                <a href="{{ route('profile.show', $user->id)}}" class="name"><strong class="d-block">{{ $user->UserDetails->firstname}} {{ $user->UserDetails->lastname}}</strong><span class="d-block">{{ $user->name}}</span></a>
                 </div>
                 <div class="col-lg-4 text-center">
                   <div class="contributions">410 Contributions</div>
                 </div>
                 <div class="col-lg-4">
                   <div class="details d-flex">
-                    <div class="item"><i class="icon-info"></i><strong>110</strong></div>
-                    <div class="item"><i class="fa fa-gg"></i><strong>200</strong></div>
-                    <div class="item"><i class="icon-flow-branch"></i><strong>100</strong></div>
+                    <div class="item"><i class="icon-info"></i><strong><a>View</a></strong></div>
+                    <div class="item"><i class="fa fa-gg"></i><strong>Edit</strong></div>
+                    <div class="item"><i class="icon-flow-branch"></i><strong>Delete</strong></div>
                   </div>
                 </div>
+               
               </div>
+             
             </div>
-            <div class="public-user-block block">
-              <div class="row d-flex align-items-center">                   
-                <div class="col-lg-4 d-flex align-items-center">
-                  <div class="order">5th</div>
-                  <div class="avatar"> <img src="{{ asset('backend/img/avatar-2.jpg') }}" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Alexander Shelby</strong><span class="d-block">@alexshelby</span></a>
-                </div>
-                <div class="col-lg-4 text-center">
-                  <div class="contributions">320 Contributions</div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="details d-flex">
-                    <div class="item"><i class="icon-info"></i><strong>150</strong></div>
-                    <div class="item"><i class="fa fa-gg"></i><strong>120</strong></div>
-                    <div class="item"><i class="icon-flow-branch"></i><strong>50</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="public-user-block block">
-              <div class="row d-flex align-items-center">                   
-                <div class="col-lg-4 d-flex align-items-center">
-                  <div class="order">6th</div>
-                  <div class="avatar"> <img src="{{ asset('backend/img/avatar-6.jpg') }}" alt="..." class="img-fluid"></div><a href="#" class="name"><strong class="d-block">Arther Kooper</strong><span class="d-block">@artherkooper</span></a>
-                </div>
-                <div class="col-lg-4 text-center">
-                  <div class="contributions">170 Contributions</div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="details d-flex">
-                    <div class="item"><i class="icon-info"></i><strong>60</strong></div>
-                    <div class="item"><i class="fa fa-gg"></i><strong>70</strong></div>
-                    <div class="item"><i class="icon-flow-branch"></i><strong>40</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
+           
           </div>
         </section>
         
-       
+        {!! $users->links() !!}
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">

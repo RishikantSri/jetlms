@@ -15,9 +15,9 @@
                <div class="row">
                <div class="col-6">
                         <div class="form-group row">
-                            <label for="address" class="col-4 col-form-label">Address</label>
+                            <label for="address" class="col-4 col-form-label form-control-sm">Address</label>
                             <div class="col-8">
-                                <input type="text"  name="address" class="form-control" id="address"
+                                <input type="text"  name="address" class="form-control  form-control-sm" id="address"
                                     value="{{ $sitesetting->address }}">
                                     @error('address')
                                     
@@ -26,9 +26,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="phone" class="col-4 col-form-label">phone</label>
+                            <label for="phone" class="col-4 col-form-label form-control-sm float-right">Phone</label>
                             <div class="col-8">
-                                <input type="text"  name="phone" class="form-control" id="phone"
+                                <input type="text"  name="phone" class="form-control  form-control-sm" id="phone"
                                     value="{{ $sitesetting->phone }}">
                                     @error('phone')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -38,9 +38,9 @@
 
                         <div class="form-group row">
 
-                            <label for="email" class="col-4 col-form-label">email Heading</label>
+                            <label for="email" class="col-4 col-form-label form-control-sm">Email</label>
                             <div class="col-8">
-                                <input type="text"  name="email" class="form-control" id="email"
+                                <input type="text"  name="email" class="form-control  form-control-sm" id="email"
                                     value="{{ $sitesetting->email }}">
                                     @error('email')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -49,9 +49,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="newsletter_message" class="col-4 col-form-label">Newsletter Message </label>
+                            <label for="newsletter_message" class="col-4 col-form-label form-control-sm">Newsletter Message </label>
                             <div class="col-8">
-                                <input type="text"  name="newsletter_message" class="form-control" id="newsletter_message"
+                                <input type="text"  name="newsletter_message" class="form-control  form-control-sm" id="newsletter_message"
                                     value="{{ $sitesetting->newsletter_message }}">
                                     @error('newsletter_message')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -60,9 +60,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="copyright_message" class="col-4 col-form-label">copyright_message</label>
+                            <label for="copyright_message" class="col-4 col-form-label form-control-sm">Copyright Message</label>
                             <div class="col-8">
-                                <input type="text"  name="copyright_message" class="form-control" id="copyright_message"
+                                <input type="text"  name="copyright_message" class="form-control  form-control-sm" id="copyright_message"
                                     value="{{ $sitesetting->copyright_message }}">
                                     @error('copyright_message')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -80,9 +80,9 @@
                     <div class="col-6">
                        
                         <div class="form-group row">
-                            <label for="facebook" class="col-4 col-form-label">facebook</label>
+                            <label for="facebook" class="col-4 col-form-label form-control-sm">Facebook</label>
                             <div class="col-8">
-                                <input type="text"  name="facebook" class="form-control" id="facebook"
+                                <input type="text"  name="facebook" class="form-control  form-control-sm" id="facebook"
                                     value="{{ $sitesetting->facebook }}">
                                     @error('facebook')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -92,9 +92,9 @@
 
                         <div class="form-group row">
 
-                            <label for="twitter" class="col-4 col-form-label">twitter</label>
+                            <label for="twitter" class="col-4 col-form-label form-control-sm">Twitter</label>
                             <div class="col-8">
-                                <input type="text"  name="twitter" class="form-control" id="twitter"
+                                <input type="text"  name="twitter" class="form-control  form-control-sm" id="twitter"
                                     value="{{ $sitesetting->twitter }}">
                                     @error('twitter')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -103,9 +103,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="instagram" class="col-4 col-form-label">instagram Message </label>
+                            <label for="instagram" class="col-4 col-form-label form-control-sm">Instagram</label>
                             <div class="col-8">
-                                <input type="text"  name="instagram" class="form-control" id="instagram"
+                                <input type="text"  name="instagram" class="form-control  form-control-sm" id="instagram"
                                     value="{{ $sitesetting->instagram }}">
                                     @error('instagram')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -113,9 +113,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inkedin" class="col-4 col-form-label">linkedin</label>
+                            <label for="inkedin" class="col-4 col-form-label form-control-sm">linkedin</label>
                             <div class="col-8">
-                                <input type="text"  name="linkedin" class="form-control" id="linkedin"
+                                <input type="text"  name="linkedin" class="form-control  form-control-sm" id="linkedin"
                                     value="{{ $sitesetting->linkedin }}">
                                     @error('linkedin')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>
@@ -123,9 +123,9 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="skype" class="col-4 col-form-label">skype</label>
+                            <label for="skype" class="col-4 col-form-label form-control-sm">Skype</label>
                             <div class="col-8">
-                                <input type="text"  name="skype" class="form-control" id="skype"
+                                <input type="text"  name="skype" class="form-control  form-control-sm" id="skype"
                                     value="{{ $sitesetting->skype }}">
                                     @error('skype')
                                     <div class="alert alert-danger" ><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $message }}</div>

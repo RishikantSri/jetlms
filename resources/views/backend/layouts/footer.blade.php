@@ -38,6 +38,18 @@
         @yield('content')
       </div>
     </div>
+    <script>
+      $(document).ready(function() {
+
+var url = [location.protocol, '//', location.host, location.pathname].join('');  
+
+         $('.nav#sidebar li..active').removeClass('active');
+         $('.nav#sidebar li. a[href="' + url  + '"]').parent().addClass('active');
+         $(this).parent().addClass('active').siblings().removeClass('active');
+
+
+ });
+    </script> 
     <!-- JavaScript files-->
     <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

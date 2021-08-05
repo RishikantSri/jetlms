@@ -17,8 +17,7 @@ class SiteSettingController extends Controller
     public function index()
     {
        
-        $sitesetting = SiteSettingTop::first();
-        return view('backend.sitesettings-top.index', compact('sitesetting'));
+        
     }
    
 
@@ -51,7 +50,9 @@ class SiteSettingController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $sitesetting = SiteSettingTop::first();
+        return view('backend.sitesettings-top.show', compact('sitesetting'));
     }
 
     /**
@@ -70,13 +71,13 @@ class SiteSettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, SiteSettingTop $sitesetting)
     {
-        
+       
         $validated = $request->validate([
             'sitetitle'=> 'required|max:100',
             'heading' => 'required|max:255',
@@ -103,7 +104,7 @@ class SiteSettingController extends Controller
                 
         }
        
-        return redirect()->route('admin.sitesettings-top.index')->with('message','Content updated!');
+        return redirect()->route('admin.sitesettings-top.show', $ss->id )->with('message','Content updated!');
        
     }
 
