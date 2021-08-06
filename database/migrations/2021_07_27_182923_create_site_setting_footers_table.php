@@ -17,7 +17,7 @@ class CreateSiteSettingFootersTable extends Migration
             $table->increments('id');
             
             $table->string('address')->nullable();
-            $table->string('phone')->nullable();
+            $table->unsignedInteger('phone')->nullable();
             $table->string('email')->nullable();
             $table->longText('newsletter_message')->nullable();
             $table->longText('copyright_message')->nullable();

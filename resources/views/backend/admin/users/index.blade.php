@@ -7,29 +7,53 @@
           </div>
         </div>
 
-        <section class="no-padding-bottom">
+        <section class="no-padding-bottom" >
+       
           <div class="container-fluid">
-           
+          <span >{{$users->links("pagination::bootstrap-4")}}</span>
+                   @if(session()->has('message'))
+                    <div>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Success !</strong> {{ session()->get('message') }}
+                        </div>
+                    </div>
+            
+                     @endif
+          
+
           @foreach ($users as $user)
             <div class="public-user-block block">
           
               <div class="row d-flex align-items-center"> 
                               
-                <div class="col-lg-4 d-flex align-items-center">
+                <div class="col-lg-3 d-flex align-items-center">
                   <div class="order">{{ $user->id}}</div>
                   <div class="avatar"> <img src="{{ $user->UserDetails->image_path }}" alt="..." class="img-fluid">
                 </div>
                 
-                <a href="{{ route('profile.show', $user->id)}}" class="name"><strong class="d-block">{{ $user->UserDetails->firstname}} {{ $user->UserDetails->lastname}}</strong><span class="d-block">{{ $user->name}}</span></a>
+                <a href="{{ route('admin.users.show', $user->id)}}" class="name"><strong class="d-block"></strong><span class="d-block">{{ $user->name}}</span></a>
                 </div>
-                <div class="col-lg-4 text-center">
-                  <div class="contributions">410 Contributions</div>
+                <div class="col-lg-2 text-center">
+                  <div class="contributions" >{{ $user->Role->name}}</div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3 text-center">
+                  <div class="contributions">{{ $user->email}}</div>
+                </div>
+                <div class="col-lg-3">
                   <div class="details d-flex">
-                    <div class="item"><i class="icon-info"></i><strong><a>View</a></strong></div>
-                    <div class="item"><i class="fa fa-gg"></i><strong>Edit</strong></div>
-                    <div class="item"><i class="icon-flow-branch"></i><strong>Delete</strong></div>
+                    <div class="item"> <a href="{{ route('admin.users.show', $user->id)}}" class="name"><strong class="d-block"><i class="icon-info"></i>View</a></strong></div>
+                    <div class="item"><a href="{{ route('admin.users.edit', $user->id)}}" class="name"><i class="fa fa-gg"></i><strong>Edit</strong></a></div>
+                    <div class="item">
+                      <form onsubmit="return confirm('Want to delet this User? Are you sure?');" action="{{ route('admin.users.destroy',$user->id) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input type="submit" value="Delete" class="btn btn-danger icon-flow-branch"></input>
+                      </form>
+                      
+                    </div>
                   </div>
                 </div>
                
@@ -41,7 +65,8 @@
           </div>
         </section>
         
-        {!! $users->links() !!}
+        <!-- {!! $users->links() !!} -->
+      
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
@@ -50,6 +75,8 @@
             </div>
           </div>
         </footer>
+        
+        
 
 
 @endsection

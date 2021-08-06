@@ -611,3 +611,10 @@ body
         box-shadow: none;
         -webkit-box-shadow: none;
     }
+
+    /*  new changes */
+    .public-user-block {
+         padding: 5px;
+        
+         margin-bottom: 10px;
+    }

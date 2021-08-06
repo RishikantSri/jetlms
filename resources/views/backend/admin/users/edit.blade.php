@@ -10,7 +10,7 @@
   
    
 <div class="container bootstrap snippets bootdeys">
-<form action="{{ route('profile.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.users.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
                  @csrf
                  @method('PUT')
     <div class="row" id="user-profile">

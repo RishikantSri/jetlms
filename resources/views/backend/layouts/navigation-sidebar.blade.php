@@ -20,7 +20,14 @@
         <ul class="list-unstyled">
           <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}" ><a href="{{ route('dashboard') }}"> <i class="icon-home"></i>Dashboard </a></li>
           @if (auth()->user()->role_id == 1)
-          <li class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}"  ><a href="{{route('admin.users.index')}}"   > <i class="icon-user"></i>{{ __("Users") }} </a></li>
+          <li class="{{ request()->routeIs('admin.users*') ? 'active' : '' }}" ><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-user"></i>{{ __("Users") }} </a></a>
+            <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+              <li class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}" ><a href="{{ route('admin.users.index' ) }}">User List</a></li>
+              <li class="{{ request()->routeIs('admin.users.index') ? 'active' : '' }}" ><a href="{{ route('admin.users.create',$id=1) }}">Create New </a></li>
+              
+            </ul>
+          </li>
+         
           @endif
           @if (auth()->user()->role_id == 2)
           <li class="{{ request()->routeIs('student.lessons.index') ? 'active' : '' }}" ><a href="{{route('student.lessons.index')}}" :active="request()->routeIs('student.lessons.index')"> <i class="fa fa-bar-chart"></i>{{ __("Lessons") }}</a></li>
@@ -30,7 +37,7 @@
           <li class="{{ request()->routeIs('teacher.courses.index') ? 'active' : '' }}" ><a href="{{ route('teacher.courses.index')}}" > <i class="icon-padnote"></i>{{ __("Courses") }}</a></li>
           @endif
           
-         
+          @if (auth()->user()->role_id == 1)
           <li class="{{ request()->routeIs('admin.sitesettings*') ? 'active' : '' }}" ><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-settings"></i>Site Settings</a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
               <li class="{{ request()->routeIs('admin.sitesettings-top.show') ? 'active' : '' }}" ><a href="{{ route('admin.sitesettings-top.show', $id=1 ) }}">Top</a></li>
@@ -38,6 +45,7 @@
               
             </ul>
           </li>
+          @endif
           <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="icon-logout"></i>LogOut </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
                                         {{ csrf_field() }}

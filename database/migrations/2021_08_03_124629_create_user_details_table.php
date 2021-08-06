@@ -22,7 +22,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('gender')->nullable();
             
             $table->string('second_email')->nullable();
-            $table->string('phone')->nullable();
+            $table->unsignedInteger('phone')->nullable();
             $table->string('status')->nullable();
 
             $table->string('address_line1')->nullable();
@@ -30,10 +30,10 @@ class CreateUserDetailsTable extends Migration
             $table->string('address_city')->nullable();
             $table->string('address_state')->nullable();
             $table->string('address_country')->nullable();
-            $table->string('address_pincode')->nullable();
+            $table->unsignedInteger('address_pincode')->nullable();
 
             $table->string('qualification')->nullable();
-            $table->string('lincense_number')->nullable();
+            $table->unsignedInteger('lincense_number')->nullable();
             
 
             $table->string('image_path')->nullable();

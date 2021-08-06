@@ -58,7 +58,7 @@ class SiteSettingSeeder extends Seeder
                                 'address_city' => 'address city',
                                 'address_state' => 'address state',
                                 'address_country' => 'address country',
-                                'address_pincode' => 'address pincode',
+                                'address_pincode' => '1111',
                                 'qualification' => 'High School',
                                 'lincense_number' => '3454',
                                 'twitter' => 'twitter',
