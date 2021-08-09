@@ -102,7 +102,7 @@
                                 </div>  
                                 <div class="col-lg-5 col-md-5 col-sm-5">
                                     <div class="input-group input-group-sm mb-3">
-                                    <div class="input-group-prepend">
+                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Created On :</span>
                                     </div>
                                     <input type="text" value="{{ isset($course->created_at) ? $course->created_at:'N/A'  }}" readonly class="form-control-plaintext ml-2" aria-label="Created On" aria-describedby="basic-addon1">
@@ -119,6 +119,16 @@
                                     </div>
  
                                 </div>  
+                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                    <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="show_at_home">  Show at Home:</span>
+                                    </div>
+                                    <input type="text" value="{{ ($course->show_at_home==1) ? 'Yes':'No'  }}" readonly class="form-control-plaintext ml-2"  aria-label="show_at_home" aria-describedby="basic-addon1">
+                                    </div>
+ 
+                                </div>  
+                              
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

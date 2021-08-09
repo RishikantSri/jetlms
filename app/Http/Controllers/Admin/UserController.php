@@ -73,6 +73,7 @@ class UserController extends Controller
             'user_id' => $user->id,
             'gender' => $request->gender, 
             'image_path'=>'/storage/default/avatar1.png',   
+            'show_at_home'=>'0',   
 
         ]);
 
@@ -125,6 +126,8 @@ class UserController extends Controller
             "instagram" => 'max:255', "address_pincode" => 'max:10',
             "address_city" => 'max:255', "address_state" => 'max:255',
             "address_country" => 'max:255', "phone" => 'max:10',
+            "show_at_home" => 'boolean',
+            "about" => 'max:255',
            
         ]); 
    
@@ -139,6 +142,8 @@ class UserController extends Controller
                  'address_city' => $request->address_city, 'address_state' => $request->address_state,
                  'address_country' => $request->address_country, 'address_state' => $request->address_state,
                  'address_country' => $request->address_country, 'phone' => $request->phone,
+                 'show_at_home' => $request->input('show_at_home') ? true : false,
+                 'about' => $request->input('about'),
                
              ] 
          );
@@ -154,7 +159,7 @@ class UserController extends Controller
                  $ss->save(); 
                 
          } 
-        return redirect()->route('admin.users.show',$id)->with('message', 'User created successfully.');
+        return redirect()->route('admin.users.show',$id)->with('message', 'User Updated successfully.');
     }
 
     /**

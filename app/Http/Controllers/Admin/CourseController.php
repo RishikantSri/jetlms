@@ -1,12 +1,12 @@
 <?php
-
+ 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\Course;
+use App\Models\Course; 
 
 class CourseController extends Controller
 {
@@ -47,6 +47,7 @@ class CourseController extends Controller
             'published' => $request->published ?? 0,
             'price' => $request->price ?? 0,
             'author' => Auth::id(),
+            'show_at_home'=>'0', 
         ]);
 
        
@@ -86,6 +87,7 @@ class CourseController extends Controller
             'rating' => [ 'numeric','max:5'],
             'likes' => [ 'numeric', 'max:1000'],
             'published' => ['string'],
+            "show_at_home" => 'boolean',
             'price' => ['numeric'],
            
         ]);
@@ -102,6 +104,7 @@ class CourseController extends Controller
             'likes' => $request->likes,
             'rating' => $request->rating,
             'author' => $request->author,
+            'show_at_home' => $request->input('show_at_home') ? true : false,
         ]);
 
         $course = Course::find($id);

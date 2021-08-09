@@ -130,7 +130,18 @@
                                     
                                     </div>
 
-                                </div>  
+                                </div> 
+                                <div class="col-lg-4 col-md-4 col-sm-4">
+                                    <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Show at Home:</span>
+                                    </div>
+                                    <input type="checkbox" name="show_at_home" class="switch-input" value="1" {{ ($course->show_at_home==1) ? 'checked="checked"' : '' }}/>
+                                    
+                                    </div>
+
+                                </div> 
+                              
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

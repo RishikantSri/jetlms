@@ -7,6 +7,7 @@ use App\Models\SiteSettingFooter;
 use Illuminate\Database\Seeder;
 use App\Models\SiteSettingTop;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class SiteSettingSeeder extends Seeder
 {
@@ -40,37 +41,163 @@ class SiteSettingSeeder extends Seeder
 
                                ]);  
         
-                 User::create([
-                            'name' => 'Admin',
-                            'email' => 'admin@rishikantsri.tech',
-                            'password' => Hash::make('password'),
-                            'role_id' => '1'
-                               ]);   
-                UserDetails::create([
-                                'user_id' => '1',
-                                'firstname' => 'firstname',
-                                'lastname' => 'lastname',
-                                'second_email' => 'second_email@rishikantsri.tech',
-                                'phone' => '1234567123',
-                                'status' => 'Active',
-                                'address_line1' => 'address line1',
-                                'address_line2' => 'address line2',
-                                'address_city' => 'address city',
-                                'address_state' => 'address state',
-                                'address_country' => 'address country',
-                                'address_pincode' => '1111',
-                                'qualification' => 'High School',
-                                'lincense_number' => '3454',
-                                'twitter' => 'twitter',
-                                'linkedin' => 'linkedin',
-                                'facebook' => 'facebook',
-                                'skype' => 'skype',
-                                'instagram' => 'instagram',
-                                'image_path' => '/storage/default/avatar1.png',
-                                 'gender' => 'Male',
-                                
-                                   ]);   
-                                   
+                 // check if table users is empty
+        if(User::count() == 0){
+
+          
+           $users =     [
+
+                [
+                    'name' => 'Admin',
+                     'email' => 'admin@rishikantsri.tech',
+                     'password' => Hash::make('password'),
+                     'role_id' => '1'
+                ],
+                
+                [
+                    'name' => 'Trainer 1',
+                     'email' => 'trainer1@rishikantsri.tech',
+                     'password' => Hash::make('password'),
+                     'role_id' => '2'
+                ],
+                [
+                    'name' => 'Trainer 2',
+                     'email' => 'trainer2@rishikantsri.tech',
+                     'password' => Hash::make('password'),
+                     'role_id' => '2'
+                ],
+                [
+                    'name' => 'Trainer 3',
+                     'email' => 'trainer3@rishikantsri.tech',
+                     'password' => Hash::make('password'),
+                     'role_id' => '2'
+                ],
+               
+               
+
+            ];
+            User::insert($users);
+            
+        } else { echo "\e[31mTable is not empty, therefore NOT "; } 
+
+        
+
+        // insert into UserDetails table
+        
+        if(UserDetails::count() == 0){
+
+          
+            $usersdetails =     [
+ 
+                 [
+                    'user_id' => '1',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                    'second_email' => 'second_email@rishikantsri.tech',
+                    'phone' => '1234567123',
+                    'status' => 'Active',
+                    'address_line1' => 'address line1',
+                    'address_line2' => 'address line2',
+                    'address_city' => 'address city',
+                    'address_state' => 'address state',
+                    'address_country' => 'address country',
+                    'address_pincode' => '1111',
+                    'qualification' => 'High School',
+                    'lincense_number' => '3454',
+                    'twitter' => 'twitter',
+                    'linkedin' => 'linkedin',
+                    'facebook' => 'facebook',
+                    'skype' => 'skype',
+                    'instagram' => 'instagram',
+                    'image_path' => '/storage/default/avatar.png',
+                     'gender' => 'Male',
+                     'show_at_home' => '0',
+                 ],
+                 
+                 [
+                    'user_id' => '2',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                    'second_email' => 'trainer11@rishikantsri.tech',
+                    'phone' => '1234567123',
+                    'status' => 'Active',
+                    'address_line1' => 'address line1',
+                    'address_line2' => 'address line2',
+                    'address_city' => 'address city',
+                    'address_state' => 'address state',
+                    'address_country' => 'address country',
+                    'address_pincode' => '1111',
+                    'qualification' => 'High School',
+                    'lincense_number' => '3454',
+                    'twitter' => 'twitter',
+                    'linkedin' => 'linkedin',
+                    'facebook' => 'facebook',
+                    'skype' => 'skype',
+                    'instagram' => 'instagram',
+                    'image_path' => '/storage/default/trainer-1.jpg',
+                     'gender' => 'Male',
+                     'show_at_home' => '1',
+                 ],
+                 [
+                    'user_id' => '3',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                    'second_email' => 'trainer21@rishikantsri.tech',
+                    'phone' => '1234567123',
+                    'status' => 'Active',
+                    'address_line1' => 'address line1',
+                    'address_line2' => 'address line2',
+                    'address_city' => 'address city',
+                    'address_state' => 'address state',
+                    'address_country' => 'address country',
+                    'address_pincode' => '1111',
+                    'qualification' => 'High School',
+                    'lincense_number' => '3454',
+                    'twitter' => 'twitter',
+                    'linkedin' => 'linkedin',
+                    'facebook' => 'facebook',
+                    'skype' => 'skype',
+                    'instagram' => 'instagram',
+                    'image_path' => '/storage/default/trainer-2.jpg',
+                     'gender' => 'Male',
+                     'show_at_home' => '1',
+                 ],
+                 [
+                    'user_id' => '4',
+                    'firstname' => 'firstname',
+                    'lastname' => 'lastname',
+                    'second_email' => 'trainer31@rishikantsri.tech',
+                    'phone' => '1234567123',
+                    'status' => 'Active',
+                    'address_line1' => 'address line1',
+                    'address_line2' => 'address line2',
+                    'address_city' => 'address city',
+                    'address_state' => 'address state',
+                    'address_country' => 'address country',
+                    'address_pincode' => '1111',
+                    'qualification' => 'High School',
+                    'lincense_number' => '3454',
+                    'twitter' => 'twitter',
+                    'linkedin' => 'linkedin',
+                    'facebook' => 'facebook',
+                    'skype' => 'skype',
+                    'instagram' => 'instagram',
+                    'image_path' => '/storage/default/trainer-3.jpg',
+                     'gender' => 'Male',
+                     'show_at_home' => '1',
+                 ],
+
+               
+                
+ 
+             ];
+             UserDetails::insert($usersdetails);
+             
+         } else { echo "\e[31mTable is not empty, therefore NOT "; } 
+ 
+       
+
+           
                                                  
        
     }

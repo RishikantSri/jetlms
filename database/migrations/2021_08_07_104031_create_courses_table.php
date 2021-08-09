@@ -12,7 +12,7 @@ class CreateCoursesTable extends Migration
      * @return void 
      */
     public function up()
-    {
+    { 
         Schema::create('courses', function (Blueprint $table) {
             
             $table->increments('id');
@@ -27,6 +27,7 @@ class CreateCoursesTable extends Migration
             $table->string('likes')->default(0);
             $table->date('start_date')->nullable();
             $table->tinyInteger('published')->default(0);
+            $table->boolean('show_at_home')->nullable()->default(0);
             
             $table->softDeletes();
             $table->index(['deleted_at']);

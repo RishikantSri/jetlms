@@ -16,7 +16,7 @@ class UserDetails extends Model implements HasMedia
         'phone', 'status', 'address_line1','address_line2',
         'address_city','address_state','address_country',
         'address_pincode','qualification','lincense_number',
-        'image_path','twitter','linkedin','facebook','skype',
+        'image_path','twitter','linkedin','facebook','skype','show_at_home','about',
         'instagram',
         'updated_at',
         'deleted_at',

@@ -17,7 +17,7 @@ class Course extends Model implements HasMedia
         'title', 'slug','category',
         'description', 'course_image','rating',
         'likes','start_date','published','author','price',
-        'created_at',
+        'show_at_home','created_at',
         'updated_at',
         'deleted_at',
                                

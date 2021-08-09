@@ -72,6 +72,14 @@
                                             <input type="text"  name="qualification" value="{{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:''  }}" class="form-control form-control-sm" id="qualification" >
                                         </div>
                                     </div>  
+
+                                    <div class="form-group row">
+                                            <label for="about" class="col-sm-3 col-form-label form-control-sm">About :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="about" value="{{ isset($user->UserDetails->about) ? $user->UserDetails->about:''  }}" class="form-control form-control-sm" id="about" >
+                                        </div>
+                                    </div>  
+
                                     <div class="form-group row">
                                             <label for="email" class="col-sm-3 col-form-label form-control-sm">Email(Reg):</label>
                                         <div class="col-sm-9">
@@ -93,6 +101,7 @@
                                             <input type="text"  name="address_line2" value=" {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:''  }}" class="form-control form-control-sm" id="address_line2" >
                                         </div>
                                     </div>
+                                    
                                 </div>
                                 <div class="col-sm-4 profile-social">
                                     <div class="form-group row">
@@ -143,7 +152,7 @@
                                         <label for="address_pincode" class="col-form-label form-control-sm">Pincode:</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
+                                            <input type="number"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
                                         
                                         </div>
                                     </div>
@@ -184,7 +193,18 @@
                                     <label for="phone" class="col-form-label form-control-sm">Phone:</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
+                                        <input type="number"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
+                                    
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5">
+                                    <label for="show_at_home" class="col-form-label form-control-sm">Show at Home:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        
+
+                                        <input type="checkbox" name="show_at_home" class="switch-input" value="1" {{ old('show_at_home') ? 'checked="checked"' : '' }}/>
                                     
                                     </div>
                                 </div>

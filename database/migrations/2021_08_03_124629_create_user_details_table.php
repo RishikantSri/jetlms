@@ -20,6 +20,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('gender')->nullable();
+            $table->string('about')->nullable();
             
             $table->string('second_email')->nullable();
             $table->unsignedInteger('phone')->nullable();
@@ -42,6 +43,8 @@ class CreateUserDetailsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('skype')->nullable();
             $table->string('instagram')->nullable();
+            $table->boolean('show_at_home')->nullable();
+            
            
             $table->timestamps();
         });

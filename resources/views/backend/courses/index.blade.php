@@ -29,7 +29,7 @@
           
               <div class="row d-flex align-items-center"> 
                               
-                <div class="col-lg-3 d-flex align-items-center">
+                 <div class="col-lg-3 d-flex align-items-center">
                   <div class="order">{{ $course->id}}</div>
                   <div class="avatar"> <img src="{{ $course->course_image }}" alt="..." class="img-fluid">
                 </div>

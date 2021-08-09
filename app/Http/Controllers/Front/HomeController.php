@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\SiteSettingFooter;
 use App\Models\SiteSettingTop; 
+use App\Models\UserDetails; 
+use App\Models\Course; 
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,8 +20,13 @@ class HomeController extends Controller
     {
         //
         $sitesettings=SiteSettingTop::first();
+
         $sitesettingsFooter = SiteSettingFooter::first();
-        return view('frontend.home.index', compact('sitesettings','sitesettingsFooter'));
+        $trainers = UserDetails::where('show_at_home', 1) ->get();;
+        $courses = Course::where('show_at_home', 1) ->get();;
+        
+              
+        return view('frontend.home.index', compact('sitesettings','sitesettingsFooter','trainers','courses'));
     }
 
     /**

@@ -71,16 +71,17 @@
 
                 <div class="row profile-user-info">
                     <div class="col-sm-8">
-                        <div class="profile-user-details clearfix">
+                        <div class="row">
+                        <div class="col-lg-6 profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                First Name
+                                First Name:
                             </div>
                             <div class="profile-user-details-value">
                              {{ isset($user->UserDetails->firstname) ? $user->UserDetails->firstname:'N/A'  }}
                             </div>
                         </div>
-                        
-                        <div class="profile-user-details clearfix">
+
+                        <div class="col-lg-6 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 Last Name:
                             </div>
@@ -88,15 +89,7 @@
                             {{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:'N/A'  }}
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Gender:
-                            </div>
-                            <div class="profile-user-details-value">
-                            {{ isset($user->UserDetails->gender) ? $user->UserDetails->gender:'N/A'  }}
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
+                        <div class="col-lg-7 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 Qualification :
                             </div>
@@ -104,7 +97,18 @@
                              {{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:'N/A'  }} 
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
+                        <div class="col-lg-5 profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Gender:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->gender) ? $user->UserDetails->gender:'N/A'  }}
+                            </div>
+                        </div>
+
+                       
+
+                        <div class="col-lg-12  profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                  Email(Reg):
                             </div>
@@ -112,7 +116,7 @@
                             {{ $user->email ? $user->email:'N/A'  }}
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
+                        <div class="col-lg-12 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 Second Email:
                             </div>
@@ -120,7 +124,16 @@
                             {{ isset($user->UserDetails->second_email) ? $user->UserDetails->second_email:'N/A'  }}
                             </div>
                         </div>
-                        
+
+                        </div>
+                        <div class="col-lg-6 profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Phone:
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:'N/A'  }}
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-4 profile-social">
                         <ul class="fa-ul">
@@ -132,28 +145,21 @@
                         </ul>
                     </div>
                     <div class="col-sm-8">
-                    <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Address:
+                        <div class="row">
+                            <div class="col-sm-12 profile-user-details clearfix">
+                                <div class="profile-user-details-label">
+                                    Address:
+                                </div>
+                                <div class="profile-user-details-value">
+                                {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:'N/A'  }},
+                                {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:'N/A'  }}
+                            
+                                    
+                                </div>
                             </div>
-                            <div class="profile-user-details-value">
-                            {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:'N/A'  }},
-                            {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:'N/A'  }}
-                           
-                                
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Pincode:
-                            </div>
-                            <div class="profile-user-details-value">
-                         
-                            {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:'N/A'  }}
-                                
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
+
+                             
+                        <div class="col-sm-6 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 City:
                             </div>
@@ -163,7 +169,8 @@
                                 
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
+
+                        <div class="col-sm-6 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 State:
                             </div>
@@ -173,7 +180,8 @@
                                 
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
+
+                        <div class="col-sm-6 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 Country:
                             </div>
@@ -183,18 +191,20 @@
                                 
                             </div>
                         </div>
-                       
-                        
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Phone:
-                            </div>
-                            <div class="profile-user-details-value">
-                             {{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:'N/A'  }}
-                            </div>
-                        </div>
 
-                        <div class="profile-user-details clearfix">
+                                <div class="col-sm-6 profile-user-details clearfix">
+                                    <div class="profile-user-details-label">
+                                        Pincode:
+                                    </div>
+                                    <div class="profile-user-details-value">
+                                
+                                    {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:'N/A'  }}
+                                        
+                                    </div>
+                                </div>
+
+                                
+                        <div class="col-sm-5 profile-user-details clearfix">
                             <div class="profile-user-details-label">
                                 Status:
                             </div>
@@ -202,6 +212,31 @@
                              {{ isset($user->UserDetails->status) ? $user->UserDetails->status:'N/A'  }}
                             </div>
                         </div>
+                        <div class="col-sm-7 profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Show at Home:
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->show_at_home) ? $user->UserDetails->show_at_home:'N/A'  }}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                About :
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->about) ? $user->UserDetails->about:'N/A'  }} 
+                            </div>
+                        </div>
+                        </div>
+                   
+                       
+                       
+                       
+                       
+                        
+                       
 
 
                     </div>
