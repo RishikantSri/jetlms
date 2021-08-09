@@ -1,62 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head> 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LmsJet Admin</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('backend/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Custom Font Icons CSS-->
-    <link rel="stylesheet" href="{{ asset('backend/css/font.css') }}">
-    <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('backend/css/style.default.css') }}" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ asset('backend/img/favicon.ico') }}">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
-  <body>
-    <header class="header">  
-      <!-- Top Navigation--> 
-      @include('backend.layouts.navigation-top')
-    </header>
-    <div class="d-flex align-items-stretch">
-      <!-- Sidebar Navigation-->
-      @include('backend.layouts.navigation-sidebar')
-      <!-- Sidebar Navigation end-->
-      <div class="page-content">
-        @yield('content')
-      </div>
-    </div>
-    <script>
-      $(document).ready(function() {
+<footer class="footer">
+          <div class="footer__block block no-margin-bottom">
+            <div class="container-fluid text-center">
+              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+              <p class="no-margin-bottom">2021 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>,
+              Design Updated and Developed by <a href="https:/rishikantsri.tech" target="_blank">Rishikant</a>.</p>
 
-var url = [location.protocol, '//', location.host, location.pathname].join('');  
-
-         $('.nav#sidebar li..active').removeClass('active');
-         $('.nav#sidebar li. a[href="' + url  + '"]').parent().addClass('active');
-         $(this).parent().addClass('active').siblings().removeClass('active');
-
-
- });
-    </script> 
-    <!-- JavaScript files-->
-    <script src="{{ asset('backend/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('backend/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
-    <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('backend/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('backend/js/charts-home.js') }}"></script>
-    <script src="{{ asset('backend/js/front.js') }}"></script>
-  </body>
-</html>
+            </div>
+          </div>
+</footer>

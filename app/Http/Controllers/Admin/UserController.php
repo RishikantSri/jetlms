@@ -64,9 +64,9 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role_id' => $request->role_id,
-            'student_address' => $request->student_address ?? null,
-            'student_licence_number' => $request->student_licence_number ?? null,
-            'teacher_qualifications' => $request->teacher_qualifications ?? null,
+            'trainee_address' => $request->trainee_address ?? null,
+            'trainee_licence_number' => $request->trainee_licence_number ?? null,
+            'trainer_qualifications' => $request->trainer_qualifications ?? null,
         ]);
 
         UserDetails::create([
@@ -140,9 +140,9 @@ class UserController extends Controller
                  'address_country' => $request->address_country, 'address_state' => $request->address_state,
                  'address_country' => $request->address_country, 'phone' => $request->phone,
                
-             ]
+             ] 
          );
-
+ 
          $ss = UserDetails::find($id);
            
          if($request->hasFile('image_path') && $request->file('image_path')->isValid()){
@@ -153,11 +153,7 @@ class UserController extends Controller
                  $ss->image_path = $ss->getFirstMediaUrl('images');
                  $ss->save(); 
                 
-         }
-    
-      
-      
-
+         } 
         return redirect()->route('admin.users.show',$id)->with('message', 'User created successfully.');
     }
 

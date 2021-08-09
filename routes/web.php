@@ -44,17 +44,26 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('profile', \App\Http\Controllers\Admin\ProfileController::class);
 
     
-    Route::group(['middleware' => 'role:student', 'prefix' => 'student', 'as' => 'student.'], function() {
-        Route::resource('lessons', \App\Http\Controllers\Students\LessonController::class);
+    Route::group(['middleware' => 'role:trainee', 'prefix' => 'trainee', 'as' => 'trainee.'], function() {
+        Route::resource('lessons', \App\Http\Controllers\Trainees\LessonController::class);
+        Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
     });
-   Route::group(['middleware' => 'role:teacher', 'prefix' => 'teacher', 'as' => 'teacher.'], function() {
-       Route::resource('courses', \App\Http\Controllers\Teachers\CourseController::class);
+
+
+   Route::group(['middleware' => 'role:trainer', 'prefix' => 'trainer', 'as' => 'trainer.'], function() {
+       Route::resource('courses', \App\Http\Controllers\trainers\CourseController::class);
+       Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
    });
-    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+
+    
+   Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('sitesettings-top', \App\Http\Controllers\Admin\SiteSettingController::class);
         Route::resource('sitesettings-footer', \App\Http\Controllers\Admin\SiteSettingFooterController::class);
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
+        Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
+        
         
         
        

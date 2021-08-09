@@ -101,8 +101,11 @@ class SiteSettingController extends Controller
         if($request->hasFile('background_image') && $request->file('background_image')->isValid()){
                 $ss->clearMediaCollection('images');
                 $ss->addMediaFromRequest('background_image')->toMediaCollection('images');
+
+                $ss->background_image = $ss->getFirstMediaUrl('images');
+                $ss->save(); 
                 
-        }
+        } 
        
         return redirect()->route('admin.sitesettings-top.show', $ss->id )->with('message','Content updated!');
        

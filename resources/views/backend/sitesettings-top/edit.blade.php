@@ -56,7 +56,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-4 col-form-label  form-control-sm"> Background Image </label>
                         <div class="col-8">
-                            <img src="{{$sitesetting->getFirstMediaUrl('images')}}" / width="120px">
+                            <img src="{{$sitesetting->background_image}}" / width="120px">
                         </div>
                         
                     </div>

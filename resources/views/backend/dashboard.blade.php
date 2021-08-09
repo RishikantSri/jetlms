@@ -1,10 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
-@php
- if((auth()->user()->role_id == 2)){
-        $role_name = 'Admin';
-    }
-@endphp
+
 
 <div class="page-header">
           <div class="container-fluid">
@@ -19,7 +15,7 @@
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                      <div class="icon"><i class="icon-user-1"></i></div><strong>Teachers</strong>
+                      <div class="icon"><i class="icon-user-1"></i></div><strong>trainers</strong>
                     </div>
                     <div class="number dashtext-1">27</div>
                   </div>
@@ -32,7 +28,7 @@
                 <div class="statistic-block block">
                   <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                      <div class="icon"><i class="icon-contract"></i></div><strong>Students</strong>
+                      <div class="icon"><i class="icon-contract"></i></div><strong>Trainees</strong>
                     </div>
                     <div class="number dashtext-2">375</div>
                   </div>

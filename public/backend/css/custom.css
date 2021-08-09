@@ -617,4 +617,42 @@ body
          padding: 5px;
         
          margin-bottom: 10px;
+    } 
+
+    .course-label{
+        width: 110px;
+    float: left;
+    bottom: 0;
+    font-weight: bold;
+    left: 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    width: 110px;
+    padding-top: 4px;
+    }
+
+    .course-info{
+       
+    float: left;
+    bottom: 0;
+    
+    left: 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+   
+    padding-top: 4px;
+    margin-left: 120px;
+    }
+
+    .form-control-plaintext {
+       
+        color: #979a9f;
+      
+    }
+
+    .page-content {
+      
+        padding-bottom: 10px; 
     }

@@ -312,13 +312,29 @@
                             </ul>
                             @endif
                             
-                            
                             @if (auth()->user()->role_id == 2)
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
                                     <a href="{{
-                                                route('student.lessons.index')
-                                            }}" :active="request()->routeIs('student.lessons.index')"
+                                                route('trainer.courses.index')
+                                            }}" :active="request()->routeIs('trainer.courses.index')"
+                                        class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">
+                                            {{ __("Courses") }}</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            @endif 
+                            
+                            @if (auth()->user()->role_id == 3)
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="">
+                                    <a href="{{
+                                                route('trainee.lessons.index')
+                                            }}" :active="request()->routeIs('trainee.lessons.index')"
                                         class="waves-effect waves-dark">
                                         <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">
@@ -329,22 +345,7 @@
                             </ul>
                             @endif
                             
-                            @if (auth()->user()->role_id == 3)
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
-                                    <a href="{{
-                                                route('teacher.courses.index')
-                                            }}" :active="request()->routeIs('teacher.courses.index')"
-                                        class="waves-effect waves-dark">
-                                        <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">
-                                            {{ __("Courses") }}</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            @endif
+                           
                             <ul class="pcoded-item pcoded-left-item">
 
                                 <li class="pcoded-hasmenu">

@@ -6,13 +6,15 @@
           <div class="title">
             <h1 class="h5">{{ auth()->user()->name }}</h1>
             @if (auth()->user()->role_id == 1)
-            <p>Admin</p>
+            <p>Super Admin</p>
             @endif
+          
             @if (auth()->user()->role_id == 2)
-            <p>Student</p>
+            <p>Trainer</p>
             @endif
+
             @if (auth()->user()->role_id == 3)
-            <p>Teacher</p>
+            <p>Trainee</p>
             @endif
           </div>
         </div>
@@ -29,12 +31,22 @@
           </li>
          
           @endif
-          @if (auth()->user()->role_id == 2)
-          <li class="{{ request()->routeIs('student.lessons.index') ? 'active' : '' }}" ><a href="{{route('student.lessons.index')}}" :active="request()->routeIs('student.lessons.index')"> <i class="fa fa-bar-chart"></i>{{ __("Lessons") }}</a></li>
-                            
+          @if (auth()->user()->role_id == 1)
+          <li class="{{ request()->routeIs('admin.courses*') ? 'active' : '' }}" ><a href="#coursedropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-user"></i>{{ __("Courses") }} </a></a>
+            <ul id="coursedropdownDropdown2" class="collapse list-unstyled ">
+              <li class="{{ request()->routeIs('admin.courses.index') ? 'active' : '' }}" ><a href="{{ route('admin.courses.index' ) }}">Course List</a></li>
+              <li class="{{ request()->routeIs('admin.courses.index') ? 'active' : '' }}" ><a href="{{ route('admin.courses.create',$id=1) }}">Create New </a></li>
+              
+            </ul>
+          </li>
+         
           @endif
           @if (auth()->user()->role_id == 3)
-          <li class="{{ request()->routeIs('teacher.courses.index') ? 'active' : '' }}" ><a href="{{ route('teacher.courses.index')}}" > <i class="icon-padnote"></i>{{ __("Courses") }}</a></li>
+          <li class="{{ request()->routeIs('trainee.lessons.index') ? 'active' : '' }}" ><a href="{{route('trainee.lessons.index')}}" :active="request()->routeIs('trainee.lessons.index')"> <i class="fa fa-bar-chart"></i>{{ __("Lessons") }}</a></li>
+                            
+          @endif
+          @if (auth()->user()->role_id == 2)
+          <li class="{{ request()->routeIs('trainer.courses.index') ? 'active' : '' }}" ><a href="{{ route('trainer.courses.index')}}" > <i class="icon-padnote"></i>{{ __("Courses") }}</a></li>
           @endif
           
           @if (auth()->user()->role_id == 1)

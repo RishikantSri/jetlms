@@ -1,6 +1,6 @@
 <!-- Top Navigation--> 
 <nav class="navbar navbar-expand-lg">
-         
+          
         <div class="search-panel">
           <div class="search-inner d-flex align-items-center justify-content-center">
             <div class="close-btn">Close <i class="fa fa-close"></i></div>

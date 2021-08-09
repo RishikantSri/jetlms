@@ -17,7 +17,7 @@
                             <button type="button" class="close" data-dismiss="alert">
                                 <i class="fa fa-times"></i>
                             </button>
-                            <strong>Success !</strong> {{ session()->get('message') }}
+                            {{ session()->get('message') }}
                         </div>
                     </div>
             

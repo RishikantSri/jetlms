@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Teachers;
+namespace App\Http\Controllers\trainers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('backend.teacher.courses.index');
+        return view('backend.trainer.courses.index');
     }
 
     /**

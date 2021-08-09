@@ -27,11 +27,13 @@
             @if ($user->role_id == 1)
             <span>Super User</span>
             @endif
+           
             @if ($user->role_id == 2)
-            <span>Student</span>
+            <span>Trainer</span>
             @endif
+
             @if ($user->role_id == 3)
-            <span>Teacher</span>
+            <span>Trainee</span>
             @endif
                 </div>
 

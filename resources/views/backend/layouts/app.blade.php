@@ -36,10 +36,12 @@
       <!-- Sidebar Navigation end-->
       <div class="page-content">
         @yield('content')
+        @include('backend.layouts.footer')
       </div>
     </div>
     <!-- JavaScript files-->
     <script>
+      
   
 </script>
     </script> 
