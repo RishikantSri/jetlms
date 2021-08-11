@@ -41,17 +41,25 @@
                     </div>
                 </div>
 
+              
+
                 <div class="mb-0">
                     <div class="d-flex justify-content-end align-items-baseline">
+                        <x-jet-button>
+                            {{ __('Log in') }}
+                        </x-jet-button>
+
                         @if (Route::has('password.request'))
-                            <a class="text-muted mr-3" href="{{ route('password.request') }}">
+                            <a class="text-muted ml-3 mr-3" href="{{ route('password.request') }}">
                                 {{ __('Forgot your password?') }}
                             </a>
                         @endif
 
-                        <x-jet-button>
-                            {{ __('Log in') }}
-                        </x-jet-button>
+                        @if (Route::has('register'))
+                            <a class="btn btn-info text-uppercase ml-3 mr-3 " href="{{ route('register') }}">
+                                {{ __('Sign Up') }}
+                            </a>
+                        @endif
                     </div>
                 </div>
             </form>

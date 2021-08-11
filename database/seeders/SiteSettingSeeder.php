@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\user;
+use App\Models\User;
 use App\Models\UserDetails;
 use App\Models\SiteSettingFooter;
 use Illuminate\Database\Seeder;
@@ -49,8 +49,8 @@ class SiteSettingSeeder extends Seeder
 
                 [
                     'name' => 'Admin',
-                     'email' => 'admin@rishikantsri.tech',
-                     'password' => Hash::make('password'),
+                     'email' => 'admin@example.com',
+                     'password' => Hash::make('password') ,
                      'role_id' => '1'
                 ],
                 
@@ -109,7 +109,7 @@ class SiteSettingSeeder extends Seeder
                     'facebook' => 'facebook',
                     'skype' => 'skype',
                     'instagram' => 'instagram',
-                    'image_path' => '/storage/default/avatar.png',
+                    'image_path' => '/storage/default/avatar1.png',
                      'gender' => 'Male',
                      'show_at_home' => '0',
                  ],

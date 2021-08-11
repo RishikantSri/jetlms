@@ -14,11 +14,40 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+//setup database
+
+Route::get('/command', function () {
+     
+    //Only below lines to run
+
+    // Artisan::call('cache:clear');
+    // Artisan::call('route:clear');
+    // Artisan::call('config:clear');
+    // Artisan::call('view:clear');
+    // Artisan::call('migrate:fresh', [
+    //     '--seed' => true,
+    // ]);
+    // Artisan::call('storage:link');
+    // echo 'New migrations done!';
+    
+    // above lines           
+  
+ });
+
+
+
 // frontend controller
+
+
 // Route::get('/', function () {
 //     return view('frontend.home.index');
 // });
 
+
+
+Route::get('/emailtemplate', function () {
+    return view('backend.emails.welcome');
+});
 
 
 Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index']);

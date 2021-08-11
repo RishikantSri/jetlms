@@ -143,7 +143,7 @@
                                         <label for="address_pincode" class="col-form-label form-control-sm">Pincode:</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
+                                            <input type="number"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
                                         
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                     <label for="phone" class="col-form-label form-control-sm">Phone:</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
+                                        <input type="number"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
                                     
                                     </div>
                                 </div>

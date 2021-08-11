@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 
+use Illuminate\Support\Facades\Mail;
+
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
@@ -34,9 +36,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'role_id' => $input['role_id'],
-            'trainee_address' => $input['trainee_address'] ?? null,
-            'trainee_licence_number' => $input['trainee_licence_number'] ?? null,
-            'trainer_qualifications' => $input['trainer_qualifications'] ?? null,
+           
         ]);
         UserDetails::create([
             'user_id' => $user->id,
@@ -44,6 +44,22 @@ class CreateNewUser implements CreatesNewUsers
             'image_path'=>'/storage/default/avatar1.png',   
 
         ]);
+
+        //  Email :sending on registration
+ 
+        // email data
+            $email_data = array(
+                'name' => $input['name'],
+                'email' => $input['email'],
+            );
+
+            // send email with the template
+            Mail::send('backend.emails.welcome', $email_data, function ($message) use ($email_data) {
+                $message->to($email_data['email'], $email_data['name'])
+                    ->subject('Welcome to LMS')
+                    ->from('info@rishikantsri.tech', 'Jet LMS');
+            });
+
         return $user;
     }
 }

@@ -20,10 +20,8 @@
                             {{ session()->get('message') }}
                         </div>
                     </div>
-            
                      @endif
-          
-
+        </div>
           @foreach ($users as $user)
             <div class="public-user-block block">
           

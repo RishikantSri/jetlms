@@ -100,9 +100,9 @@ class ProfileController extends Controller
             "address_line1" => 'max:255', "address_line2" => 'max:255',
              "twitter" => 'max:255', "linkedin" => 'max:255',
             "facebook" => 'max:255', "skype" => 'max:255',
-            "instagram" => 'max:255', "address_pincode" => 'max:10',
+            "instagram" => 'max:255', "address_pincode" => 'numeric',
             "address_city" => 'max:255', "address_state" => 'max:255',
-            "address_country" => 'max:255', "phone" => 'max:10',
+            "address_country" => 'max:255', "phone" => 'numeric',
            
         ]); 
    
