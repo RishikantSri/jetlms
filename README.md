@@ -25,27 +25,30 @@ Email:
 1) Email will be sent for reseting password, 
 2) welcome email will be sent at the time of registration
 
-Credits:
 
-Search Engin: Google.com,  
-Admin theme : https://bootstrapious.com/
-Front end theme : https://bootstrapmade.com/
-Framework: Laravel 8.x, A wonderful MVC on PHP, Laravel.com 
+
+## Credits
+
+- Search Engin: Google.com,  
+- Admin theme : https://bootstrapious.com/
+- Front end theme : https://bootstrapmade.com/
+- Framework: Laravel 8.x, A wonderful MVC on PHP, Laravel.com 
 
 Design Updated and Developed By 
 Rishikant Srivastava
 rishikantsri.tech
 
 
+## FAQ
 
-FAQ
+
 1)How to Install
 
-Clone the repository with git clone
+- Clone the repository with git clone
 
-Copy .env.example file to .env and edit database credentials there
+- Copy .env.example file to .env and edit database credentials there
 
-Run these command in shell 
+- Run these command in shell 
     composer install 
     php artisan key:generate
     php artisan migrate --seed  (Some demo data)
