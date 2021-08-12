@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //setup database
 
-Route::get('/command', function () {
+Route::get('/setudatabase', function () {
      
     //Only below lines to run
 
@@ -63,39 +63,51 @@ Route::get('/about', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
    
-    return view('backend.dashboard');
+    if(auth()->user()->role_id == 1){
+        return redirect('admin/dashboard');
+    }
+    if(auth()->user()->role_id == 2){
+        return redirect('trainer/dashboard');
+    }
+    if(auth()->user()->role_id == 3){
+        return redirect('trainee/dashboard');
+    }
+  //  return view('backend.dashboard');
 })->name('dashboard');
 
 
 
 Route::group(['middleware' => 'auth'], function() {
 
-    Route::resource('profile', \App\Http\Controllers\Admin\ProfileController::class);
-
-    
-    Route::group(['middleware' => 'role:trainee', 'prefix' => 'trainee', 'as' => 'trainee.'], function() {
-        Route::resource('lessons', \App\Http\Controllers\Trainees\LessonController::class);
-        Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
-    });
-
-
-   Route::group(['middleware' => 'role:trainer', 'prefix' => 'trainer', 'as' => 'trainer.'], function() {
-       Route::resource('courses', \App\Http\Controllers\trainers\CourseController::class);
-       Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
-   });
-
-    
-   Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
+        Route::group(['middleware' => 'role:admin', 'prefix' => 'admin', 'as' => 'admin.'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('sitesettings-top', \App\Http\Controllers\Admin\SiteSettingController::class);
         Route::resource('sitesettings-footer', \App\Http\Controllers\Admin\SiteSettingFooterController::class);
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
-        Route::get('/dashboard',  function () { return view('backend.dashboard'); })->name('dashboard');
-        
-        
-        
+        Route::get('/dashboard',  function () { return view('backend.admin.dashboard'); })->name('dashboard');
+        Route::resource('myprofile', \App\Http\Controllers\Admin\ProfileController::class);
+        });
+    
        
-    });
+
+       Route::group(['middleware' => 'role:trainer', 'prefix' => 'trainer', 'as' => 'trainer.'], function() {
+       Route::resource('courses', \App\Http\Controllers\Trainer\CourseController::class);
+       Route::resource('lessons', \App\Http\Controllers\Trainee\LessonController::class);
+       Route::get('/dashboard',  function () { return view('backend.trainer.dashboard'); })->name('dashboard');
+       Route::resource('myprofile', \App\Http\Controllers\Trainer\ProfileController::class);
+       });
+
+
+       Route::group(['middleware' => 'role:trainee', 'prefix' => 'trainee', 'as' => 'trainee.'], function() {
+       Route::resource('courses', \App\Http\Controllers\Trainee\CourseController::class);
+       Route::resource('lessons', \App\Http\Controllers\Trainee\LessonController::class);
+       Route::get('/dashboard',  function () { return view('backend.trainee.dashboard'); })->name('dashboard');
+       Route::resource('myprofile', \App\Http\Controllers\Trainee\ProfileController::class);
+       });
+ 
+
+    
+        
 });
 

@@ -5,222 +5,225 @@
 
  
 <div class="card"> 
-  
-    
-  
-   
 <div class="container bootstrap snippets bootdeys">
-<form action="{{ route('admin.users.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
-                 @csrf
-                 @method('PUT')
     <div class="row" id="user-profile">
-        
         <div class="col-lg-3 col-md-4 col-sm-4">
             <div class="main-box clearfix">
                 <h2>{{ $user->name}} </h2>
-               
-                <img src="{{$user->UserDetails->image_path}}" alt="" class="profile-img img-responsive center-block" style="width: 100%";>
-               
-               
-                <div class="form-group row">
-                     <label for="inputEmail3" class=" col-form-label form-control-sm">Change Image</label>
-                        <div class="">
-                            <input type="file" name="image_path" class="form-control" id="image_path">
-                        </div>
-                 </div>
+                <div class="profile-status">
+                    <i class="fa fa-check-circle"></i> Online
+                </div>
+                <img src='{{ $user->UserDetails->image_path }}'  alt="" class="profile-img img-responsive center-block" style="width: 100%";> <div class="profile-label">
+                    <span class="label label-danger">{{ $user->name}}</span>
+                </div>
+
+                <div class="profile-stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+             <br>      
+            @if ($user->role_id == 1)
+            <span>Super User</span>
+            @endif
+           
+            @if ($user->role_id == 2)
+            <span>Trainer</span>
+            @endif
+
+            @if ($user->role_id == 3)
+            <span>Trainee</span>
+            @endif
+                </div>
+
+                
+                @if (auth()->user()->role_id == 1)
+                <div class="profile-message-btn center-block text-center">
+                    <a href="#" class="btn btn-success">
+                        <i class="fa fa-envelope"></i> Send message
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
 
         <div class="col-lg-9 col-md-8 col-sm-8">
+       
+           
             <div class="main-box clearfix">
                 <div class="profile-header">
-                    <h3><span>User info: Edit</span></h3>
-                    @if ($errors->any())
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
+                    <h3><span>User info</span></h3>
+                    <div class="">
+                     @if(session()->has('message'))
+                    <div>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <strong>Success !</strong> {{ session()->get('message') }}
+                        </div>
+                    </div>
+            
+                     @endif
+                    </div>
+                    
+                </div>
+
+                <div class="row profile-user-info">
+                    <div class="col-sm-8">
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                First Name
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->firstname) ? $user->UserDetails->firstname:'N/A'  }}
+                            </div>
+                        </div>
+                        
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Last Name:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:'N/A'  }}
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Gender:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->gender) ? $user->UserDetails->gender:'N/A'  }}
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Qualification :
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:'N/A'  }} 
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                 Email(Reg):
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ $user->email ? $user->email:'N/A'  }}
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Second Email:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->second_email) ? $user->UserDetails->second_email:'N/A'  }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-4 profile-social">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-twitter-square"></i><a href="#">{{ isset($user->UserDetails->twitter) ? $user->UserDetails->twitter:'N/A'  }}</a></li>
+                            <li><i class="fa-li fa fa-linkedin-square"></i><a href="#">{{ isset($user->UserDetails->linkedin) ? $user->UserDetails->linkedin:'N/A'  }}</a></li>
+                            <li><i class="fa-li fa fa-facebook-square"></i><a href="#">{{ isset($user->UserDetails->facebook) ? $user->UserDetails->facebook:'N/A'  }}</a></li>
+                            <li><i class="fa-li fa fa-skype"></i><a href="#">{{ isset($user->UserDetails->skype) ? $user->UserDetails->skype:'N/A'  }}</a></li>
+                            <li><i class="fa-li fa fa-instagram"></i><a href="#">{{ isset($user->UserDetails->instagram) ? $user->UserDetails->instagram:'N/A'  }}</a></li>
                         </ul>
                     </div>
-                     @endif
-                    
-                </div>
-               
-                <div class="row profile-user-info">
-                   
-                                <div class="col-sm-8">
-                            
-                                    <div class="form-group row">
-                                            <label for="firstname" class="col-sm-3 col-form-label form-control-sm">First Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="firstname" value="{{ isset($user->UserDetails->firstname) ? $user->UserDetails->firstname:''  }}" class="form-control form-control-sm" id="firstname" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                            <label for="lastname" class="col-sm-3 col-form-label form-control-sm">Last Name:</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="lastname" value="{{ isset($user->UserDetails->lastname) ? $user->UserDetails->lastname:''  }}" class="form-control form-control-sm" id="lastname" >
-                                        </div>
-                                    </div>  
-                                    <div class="form-group row">
-                                            <label for="qualification" class="col-sm-3 col-form-label form-control-sm">Qualification :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="qualification" value="{{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:''  }}" class="form-control form-control-sm" id="qualification" >
-                                        </div>
-                                    </div>  
-
-                                    <div class="form-group row">
-                                            <label for="about" class="col-sm-3 col-form-label form-control-sm">About :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="about" value="{{ isset($user->UserDetails->about) ? $user->UserDetails->about:''  }}" class="form-control form-control-sm" id="about" >
-                                        </div>
-                                    </div>  
-
-                                    <div class="form-group row">
-                                            <label for="email" class="col-sm-3 col-form-label form-control-sm">Email(Reg):</label>
-                                        <div class="col-sm-9">
-                                            <input type="email"  name="email" value=" {{ $user->email ? $user->email:''  }}" class="form-control form-control-sm" id="email" readonly>
-                                        </div>
-                                    </div>  
-                                    <div class="form-group row">
-                                            <label for="second_text" class="col-sm-3 col-form-label form-control-sm">Second Email:</label>
-                                        <div class="col-sm-9">
-                                            <input type="email"  name="second_email" value="{{ isset($user->UserDetails->second_email) ? $user->UserDetails->second_email:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <label for="address_line1" class="col-form-label form-control-sm">Address:</label>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="address_line1" value=" {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:''  }}" class="form-control form-control-sm" id="address_line1" >
-                                            <input type="text"  name="address_line2" value=" {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:''  }}" class="form-control form-control-sm" id="address_line2" >
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-sm-4 profile-social">
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <i class="fa fa-twitter-square"></i>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="twitter" value="{{ isset($user->UserDetails->twitter) ? $user->UserDetails->twitter:''  }}" class="form-control form-control-sm" id="twitter" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <i class="fa fa-linkedin-square"></i>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="linkedin" value="{{ isset($user->UserDetails->linkedin) ? $user->UserDetails->linkedin:''  }}" class="form-control form-control-sm" id="inputEmail3" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <i class="fa fa-facebook-square"></i>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="facebook" value="{{ isset($user->UserDetails->facebook) ? $user->UserDetails->facebook:''  }}" class="form-control form-control-sm" id="facebook" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <i class="fa fa-skype"></i>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="skype" value="{{ isset($user->UserDetails->skype) ? $user->UserDetails->skype:''  }}" class="form-control form-control-sm" id="skype" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3">
-                                        <i class="fa fa-instagram"></i>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="instagram" value="{{ isset($user->UserDetails->instagram) ? $user->UserDetails->instagram:''  }}" class="form-control form-control-sm" id="instagram" >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
+                    <div class="col-sm-8">
+                    <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Address:
+                            </div>
+                            <div class="profile-user-details-value">
+                            {{ isset($user->UserDetails->address_line1) ? $user->UserDetails->address_line1:'N/A'  }},
+                            {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:'N/A'  }}
+                           
                                 
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                        <label for="address_pincode" class="col-form-label form-control-sm">Pincode:</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="number"  name="address_pincode" value="  {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:''  }}" class="form-control form-control-sm" id="address_pincode" >
-                                        
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                        <label for="address_city" class="col-form-label form-control-sm"> City:</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text"  name="address_city" value=" {{ isset($user->UserDetails->address_city) ? $user->UserDetails->address_city:''  }}" class="form-control form-control-sm" id="address_city" >
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                        <label for="address_state" class="col-form-label form-control-sm">  State:</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text"  name="address_state" value="    {{ isset($user->UserDetails->address_state) ? $user->UserDetails->address_state:''  }}" class="form-control form-control-sm" id="address_state" >
-                                        
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Pincode:
+                            </div>
+                            <div class="profile-user-details-value">
+                         
+                            {{ isset($user->UserDetails->address_pincode) ? $user->UserDetails->address_pincode:'N/A'  }}
                                 
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                        <label for="address_country" class="col-form-label form-control-sm"> Country:</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text"  name="address_country" value=" {{ isset($user->UserDetails->address_country) ? $user->UserDetails->address_country:''  }}" class="form-control form-control-sm" id="address_country" >
-                                        
-                                        </div>
-                                    </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-4">
-                                    <label for="phone" class="col-form-label form-control-sm">Phone:</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="number"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
-                                    
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-5">
-                                    <label for="show_at_home" class="col-form-label form-control-sm">Show at Home:</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        
-
-                                        <input type="checkbox" name="show_at_home" class="switch-input" value="1" {{ old('show_at_home') ? 'checked="checked"' : '' }}/>
-                                    
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                City:
+                            </div>
+                            <div class="profile-user-details-value">
+                         
+                            {{ isset($user->UserDetails->address_city) ? $user->UserDetails->address_city:'N/A'  }}
                                 
-
-                                </div>
-                            <input class="btn btn-danger save-profile" type="submit" name="" value="Save profile">
-                            
-                   
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                State:
+                            </div>
+                            <div class="profile-user-details-value">
+                         
+                            {{ isset($user->UserDetails->address_state) ? $user->UserDetails->address_state:'N/A'  }}
+                                
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Country:
+                            </div>
+                            <div class="profile-user-details-value">
+                         
+                            {{ isset($user->UserDetails->address_country) ? $user->UserDetails->address_country:'N/A'  }}
+                                
+                            </div>
+                        </div>
                        
-                    
-                   
+                        
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Phone:
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:'N/A'  }}
+                            </div>
+                        </div>
+
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Status:
+                            </div>
+                            <div class="profile-user-details-value">
+                             {{ isset($user->UserDetails->status) ? $user->UserDetails->status:'N/A'  }}
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="profile-since">
+                          Member since: Jan 2012
+                     </div>
+
+                    <div class="profile-details">
+                      <ul class="fa-ul">
+                        <li><i class="fa-li fa fa-truck"></i>Courses: <span>456</span></li>
+                        <li><i class="fa-li fa fa-comment"></i>Lessons: <span>828</span></li>
+                        <li><i class="fa-li fa fa-tasks"></i>Tasks done: <span>1024</span></li>
+                      </ul>
+                    </div>
+                    </div>
+                    <br>
+                    <a href="{{ route('admin.myprofile.edit', $user->id) }}" class="btn btn-success edit-profile">
+                        <i class="fa fa-pencil-square fa-lg"></i> Edit profile
+                    </a>
                 </div>
-                </form>
-
-
                 @if (auth()->user()->role_id == 1)
                 <div class="tabs-wrapper profile-tabs">
                     <ul class="nav nav-tabs">

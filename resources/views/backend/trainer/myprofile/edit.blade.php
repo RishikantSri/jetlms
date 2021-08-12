@@ -10,7 +10,7 @@
   
    
 <div class="container bootstrap snippets bootdeys">
-<form action="{{ route('admin.users.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('trainer.myprofile.update', $user->UserDetails->id) }}" method="POST" enctype="multipart/form-data">
                  @csrf
                  @method('PUT')
     <div class="row" id="user-profile">
@@ -72,14 +72,6 @@
                                             <input type="text"  name="qualification" value="{{ isset($user->UserDetails->qualification) ? $user->UserDetails->qualification:''  }}" class="form-control form-control-sm" id="qualification" >
                                         </div>
                                     </div>  
-
-                                    <div class="form-group row">
-                                            <label for="about" class="col-sm-3 col-form-label form-control-sm">About :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"  name="about" value="{{ isset($user->UserDetails->about) ? $user->UserDetails->about:''  }}" class="form-control form-control-sm" id="about" >
-                                        </div>
-                                    </div>  
-
                                     <div class="form-group row">
                                             <label for="email" class="col-sm-3 col-form-label form-control-sm">Email(Reg):</label>
                                         <div class="col-sm-9">
@@ -101,7 +93,6 @@
                                             <input type="text"  name="address_line2" value=" {{ isset($user->UserDetails->address_line2) ? $user->UserDetails->address_line2:''  }}" class="form-control form-control-sm" id="address_line2" >
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 <div class="col-sm-4 profile-social">
                                     <div class="form-group row">
@@ -194,17 +185,6 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="number"  name="phone" value="{{ isset($user->UserDetails->phone) ? $user->UserDetails->phone:''  }}" class="form-control form-control-sm" id="phone" >
-                                    
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-5">
-                                    <label for="show_at_home" class="col-form-label form-control-sm">Show at Home:</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        
-
-                                        <input type="checkbox" name="show_at_home" class="switch-input" value="1" {{ old('show_at_home') ? 'checked="checked"' : '' }}/>
                                     
                                     </div>
                                 </div>
@@ -568,16 +548,5 @@
    
  </div> 
  </div>  
-
-<footer class="footer">
-          <div class="footer__block block no-margin-bottom">
-            <div class="container-fluid text-center">
-              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">2021 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
-            </div>
-          </div>
-</footer>
-
-
 
 @endsection 

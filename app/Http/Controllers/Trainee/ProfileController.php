@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Trainee;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -54,18 +54,7 @@ class ProfileController extends Controller
       
         $user = User::find($id);
         $userdetails = User::find($id)->UserDetails;
-
-        // if($user->UserDetails->image==null){ // default image 
-        //     $image_path="/storage/default/avatar1.png";
-
-        // }else{
-        //     $folder='images';
-        //     $image_path= $user->UserDetails->getFirstMediaUrl($folder);
-        // }
-
-       
-         
-        return view('backend.admin.myprofile.show', compact('user'));
+        return view('backend.trainee.myprofile.show', compact('user'));
       
     }
  
@@ -79,9 +68,7 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         $userdetails = User::find($id)->UserDetails;
-       
-       //  dd($userdetails);
-        return view('backend.admin.myprofile.edit', compact('user'));
+        return view('backend.trainee.myprofile.edit', compact('user'));
     }
 
     /**
@@ -133,7 +120,7 @@ class ProfileController extends Controller
                 
          }
     
-        return redirect()->route('admin.myprofile.show', $id )->with('message','Content updated!');
+        return redirect()->route('trainee.myprofile.show', $id )->with('message','Content updated!');
     }
 
     /**

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\Course; 
+use App\Models\Course;  
 
 class CourseController extends Controller
 {
@@ -14,14 +14,14 @@ class CourseController extends Controller
     public function index() 
     {
         $courses = Course::paginate(5);
-        return view('backend.courses.index',compact('courses'))
+        return view('backend.admin.courses.index',compact('courses'))
             ->with('i', (request()->input('page', 1) - 1) * 5); 
     }
 
    
     public function create()
     {
-        return view('backend.courses.create');
+        return view('backend.admin.courses.create');
     }
 
     public function store(Request $request)
@@ -67,14 +67,14 @@ class CourseController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        return view('backend.courses.show', compact('course'));
+        return view('backend.admin.courses.show', compact('course'));
     }
 
     public function edit($id)
     {
         $course = Course::find($id);
         
-        return view('backend.courses.edit', compact('course'));
+        return view('backend.admin.courses.edit', compact('course'));
     }
 
     public function update(Request $request, $id)

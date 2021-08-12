@@ -52,7 +52,7 @@ class SiteSettingController extends Controller
     {
         
         $sitesetting = SiteSettingTop::first();
-        return view('backend.sitesettings-top.show', compact('sitesetting'));
+        return view('backend.admin.sitesettings-top.show', compact('sitesetting'));
     }
 
     /**
@@ -65,7 +65,7 @@ class SiteSettingController extends Controller
     {
       
        $sitesetting = SiteSettingTop::first();
-       return view('backend.sitesettings-top.edit', compact('sitesetting'));
+       return view('backend.admin.sitesettings-top.edit', compact('sitesetting'));
     }
     
     /**

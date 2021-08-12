@@ -54,7 +54,7 @@ class CreateNewUser implements CreatesNewUsers
             );
 
             // send email with the template
-            Mail::send('backend.emails.welcome', $email_data, function ($message) use ($email_data) {
+            Mail::send('backend.admin.emails.welcome', $email_data, function ($message) use ($email_data) {
                 $message->to($email_data['email'], $email_data['name'])
                     ->subject('Welcome to LMS')
                     ->from('info@rishikantsri.tech', 'Jet LMS');
