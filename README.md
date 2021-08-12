@@ -34,9 +34,9 @@ Email:
 - Front end theme : https://bootstrapmade.com/
 - Framework: Laravel 8.x, A wonderful MVC on PHP, Laravel.com 
 
-Design Updated and Developed By 
-Rishikant Srivastava
-rishikantsri.tech
+<br>Design Updated and Developed By 
+<br>Rishikant Srivastava
+<br>rishikantsri.tech
 
 
 ## FAQ
@@ -49,16 +49,16 @@ rishikantsri.tech
 - Copy .env.example file to .env and edit database credentials there
 
 - Run these command in shell 
-    composer install 
-    php artisan key:generate
-    php artisan migrate --seed  (Some demo data)
+    - composer install 
+    - php artisan key:generate
+    - php artisan migrate --seed  (Some demo data)
     
     
-    Now visit to Your site
-    You can login to admin
-    yourdomain/login URL and login with credentials 
-    username :	admin@example.com
-	password :	password 
+    - Now visit to Your site
+    - You can login to admin
+    - yourdomain/login URL and login with credentials 
+    - username :	admin@example.com
+	- password :	password 
 
 2) Why are All features not working?
 Yes, I am keep updating with the best effort. You can pull request i will update that soon.
