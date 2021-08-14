@@ -25,6 +25,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('second_email')->nullable();
             $table->unsignedInteger('phone')->nullable();
             $table->string('status')->nullable();
+            $table->string('course_opted')->nullable();
 
             $table->string('address_line1')->nullable();
             $table->string('address_line2')->nullable();

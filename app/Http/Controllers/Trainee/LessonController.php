@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserDetails;
  
 class LessonController extends Controller
 {
@@ -16,7 +17,12 @@ class LessonController extends Controller
      */
     public function index()
     {
-       
+         
+        $course_opted = UserDetails::where('user_id' ,'=' ,Auth::id())->pluck('course_opted')->toArray();
+        // dd($course_opted);
+        $courses = Course::whereIn('id', $course_opted)->paginate(5);
+        return view('backend.trainee.courses.index',compact('courses'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

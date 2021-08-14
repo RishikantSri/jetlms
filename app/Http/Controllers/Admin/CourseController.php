@@ -24,7 +24,7 @@ class CourseController extends Controller
         return view('backend.admin.courses.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
@@ -50,7 +50,7 @@ class CourseController extends Controller
             'show_at_home'=>'0', 
         ]);
 
-       
+        
            
         if($request->hasFile('course_image') && $request->file('course_image')->isValid()){
                 $course->clearMediaCollection('images');

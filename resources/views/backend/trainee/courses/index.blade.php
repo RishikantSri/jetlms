@@ -3,7 +3,7 @@
 
 <div class="page-header">
   <div class="container-fluid">
-    <h2 class="h5 no-margin-bottom">All Couses</h2>
+    <h2 class="h5 no-margin-bottom">My Couses</h2>
   </div>
 </div>
 
@@ -45,16 +45,7 @@
         <div class="col-lg-3">
           <div class="details d-flex">
             <div class="item"> <a href="{{ route('trainee.courses.show', $course->id)}}" class="name"><strong class="d-block"><i class="icon-info"></i>View</a></strong></div>
-            <div class="item"><a href="{{ route('trainee.courses.edit', $course->id)}}" class="name"><i class="fa fa-gg"></i><strong>Edit</strong></a></div>
-            <div class="item">
-              <form onsubmit="return confirm('Want to delet this User? Are you sure?');" action="{{ route('trainee.courses.destroy',$course->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input type="submit" value="Delete" class="btn btn-danger icon-flow-branch"></input>
-              </form>
-
-            </div>
-          </div>
+           
         </div>
 
       </div>

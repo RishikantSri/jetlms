@@ -36,13 +36,10 @@
                 
                 <a href="{{ route('admin.courses.show', $course->id)}}" class="name"><strong class="d-block"></strong><span class="d-block">{{ $course->title}}</span></a>
                 </div>
-                <div class="col-lg-2 text-center">
-                  <div class="contributions" >{{ $course->Author->name}}</div>
-                </div>
-                <div class="col-lg-2 text-center">
+                <div class="col-lg-3 text-center">
                   <div class="contributions" >{{ $course->category}}</div>
                 </div>
-                <div class="col-lg-2 text-center">
+                <div class="col-lg-3 text-center">
                   <div class="contributions">{{ $course->price}}</div>
                 </div>
                 <div class="col-lg-3">

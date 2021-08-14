@@ -5,30 +5,34 @@ namespace App\Http\Controllers\Trainee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\UserDetails;
 use Illuminate\Support\Facades\Auth;
  
 class CourseController extends Controller
 {
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
-        $courses = Course::paginate(5);
+         
+         $course_opted = UserDetails::where('user_id' ,'=' ,Auth::id())->pluck('course_opted')->toArray();
+        // dd($course_opted);
+        $courses = Course::whereIn('id', $course_opted)->paginate(5);
         return view('backend.trainee.courses.index',compact('courses'))
             ->with('i', (request()->input('page', 1) - 1) * 5); 
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -39,7 +43,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -50,7 +54,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+        return view('backend.trainee.courses.show', compact('course'));
     }
 
     /**
@@ -62,6 +67,7 @@ class CourseController extends Controller
     public function edit($id)
     {
         //
+      
     }
 
     /**
@@ -73,7 +79,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+    
     }
 
     /**
@@ -84,6 +91,6 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+     
     }
 }
