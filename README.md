@@ -39,7 +39,7 @@ Email:
 <br>rishikantsri.tech
 
 ## Live Site
-https://jetlms.rishikantsri.tech/
+https://jetlms.rishikantsri.online/
 
 
 ## FAQ
